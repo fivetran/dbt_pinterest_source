@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_pinterest_ads__ad_group_history
+    columns:
+      - name: version_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_pinterest_ads__campaign_history
+    columns:
+      - name: version_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_pinterest_ads__pin_promotion_history
+    columns:
+      - name: version_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_pinterest_ads__pin_promotion_report
+    columns:
+      - name: report_id
+        tests:
+          - unique
+          - not_null

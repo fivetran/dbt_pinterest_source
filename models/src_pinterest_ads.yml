@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: pinterest_ads
+    schema: "{{ var('pinterest_schema', 'pinterest_ads') }}"
+    database: "{{ var('pinterest_database', target.database) }}"
+    tables:
+      - name: pin_promotion_report
+      - name: pin_promotion_history
+      - name: campaign_history
+      - name: ad_group_history
