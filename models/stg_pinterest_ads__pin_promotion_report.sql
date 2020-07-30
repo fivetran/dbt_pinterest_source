@@ -14,7 +14,7 @@ with base as (
         _fivetran_synced,
         coalesce(impression_1,0) + coalesce(impression_2,0) as impressions,
         coalesce(clickthrough_1,0) + coalesce(clickthrough_2,0) as clicks,
-        spend_in_micro_dollar / 1000000.0::float as spend
+        spend_in_micro_dollar / 1000000.0 as spend
     from base
 
 ), surrogate_key as (
