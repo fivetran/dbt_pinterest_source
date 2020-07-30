@@ -1,7 +1,7 @@
 with base as (
 
     select *
-    from {{ source('pinterest_ads','pin_promotion_history') }}
+    from {{ var('pin_promotion_history') }}
 
 ), fields as (
 
