@@ -2,15 +2,13 @@ name: 'pinterest_source'
 version: '1.0.0'
 config-version: 2
 
-source-paths: ["models"]
-analysis-paths: ["analysis"]
-test-paths: ["tests"]
-data-paths: ["data"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
 vars:
   ad_group_history: "{{ source('pinterest_ads','ad_group_history') }}"
   campaign_history: "{{ source('pinterest_ads','campaign_history') }}"
   pin_promotion_history: "{{ source('pinterest_ads','pin_promotion_history') }}"
   pin_promotion_report: "{{ source('pinterest_ads','pin_promotion_report') }}"
+
+
+models:
+  pinterest_source:
+    +materialized: table
