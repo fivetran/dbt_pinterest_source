@@ -10,11 +10,6 @@ vars:
     pin_promotion_history: "{{ source('pinterest_ads','pin_promotion_history') }}"
     pin_promotion_report: "{{ source('pinterest_ads','pin_promotion_report') }}"
 
-    pinterest_schema: pinterest
-
-
 models:
   pinterest_source:
     +materialized: table
-
-profile: dev_bigquery_dbt_testing
