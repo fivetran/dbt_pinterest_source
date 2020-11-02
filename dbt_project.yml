@@ -1,12 +1,14 @@
 name: 'pinterest_source'
-version: '1.0.0'
+version: '0.2.0'
 config-version: 2
+require-dbt-version: [">=0.18.0", "<0.19.0"]
 
 vars:
-  ad_group_history: "{{ source('pinterest_ads','ad_group_history') }}"
-  campaign_history: "{{ source('pinterest_ads','campaign_history') }}"
-  pin_promotion_history: "{{ source('pinterest_ads','pin_promotion_history') }}"
-  pin_promotion_report: "{{ source('pinterest_ads','pin_promotion_report') }}"
+  pinterest_source:
+    ad_group_history: "{{ source('pinterest_ads','ad_group_history') }}"
+    campaign_history: "{{ source('pinterest_ads','campaign_history') }}"
+    pin_promotion_history: "{{ source('pinterest_ads','pin_promotion_history') }}"
+    pin_promotion_report: "{{ source('pinterest_ads','pin_promotion_report') }}"
 
 
 models:
