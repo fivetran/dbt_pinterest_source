@@ -1,7 +1,20 @@
 with base as (
 
     select *
-    from {{ var('pin_promotion_history') }}
+    from {{ ref('stg_pinterest_ads__pin_promotion_history_tmp') }}
+
+), macro as (
+
+    select
+
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_pinterest_ads__pin_promotion_history_tmp')),
+                staging_columns=get_pin_promotion_history_columns()
+            )
+        }}
+
+    from base
 
 ), fields as (
 
@@ -23,7 +36,7 @@ with base as (
         status,
         creative_type,
         _fivetran_synced
-    from base
+    from macro
 
 ), surrogate_key as (
 

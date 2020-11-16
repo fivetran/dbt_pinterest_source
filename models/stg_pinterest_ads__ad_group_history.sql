@@ -1,19 +1,17 @@
 with base as (
 
     select *
-    from {{ var('ad_group_history') }}
+    from {{ ref('stg_pinterest_ads__ad_group_history_tmp') }}
 
 ), fields as (
 
     select
-        id as ad_group_id,
-        campaign_id,
-        created_time as created_timestamp,
-        name,
-        status,
-        start_time as start_timestamp,
-        end_time as end_timestamp,
-        _fivetran_synced
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_pinterest_ads__ad_group_history_tmp')),
+                staging_columns=get_ad_group_history_columns()
+            )
+        }}
     from base
 
 ), surrogate_key as (
