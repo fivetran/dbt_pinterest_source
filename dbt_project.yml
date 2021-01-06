@@ -9,6 +9,7 @@ vars:
     campaign_history: "{{ source('pinterest_ads','campaign_history') }}"
     pin_promotion_history: "{{ source('pinterest_ads','pin_promotion_history') }}"
     pin_promotion_report: "{{ source('pinterest_ads','pin_promotion_report') }}"
+    passthrough_variable: []
 
 models:
   pinterest_source:
