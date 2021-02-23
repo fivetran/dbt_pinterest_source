@@ -30,8 +30,8 @@ By default, this package will look for your Pinterest Ads data in the `pinterest
 config-version: 2
 
 vars:
-    pinterest_schema: your_database_name
-    pinterest_database: your_schema_name 
+    pinterest_database: your_database_name
+    pinterest_schema: your_schema_name 
 ```
 
 ## Contributions
