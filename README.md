@@ -1,6 +1,6 @@
 # Pinterest Ads (Source)
 
-This package models Pinterest Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/pinterest-ads). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1YMsP4fBwb0sGoOgDWfIEVVOkfXfljOseulgx9wC87qk/edit).
+This package models Pinterest Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/pinterest-ads). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/pinterest-ads#schemainformation).
 
 This package enriches your Fivetran data by doing the following:
 
