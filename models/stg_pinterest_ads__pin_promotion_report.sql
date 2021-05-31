@@ -26,11 +26,9 @@ with base as (
         coalesce(impression_1,0) + coalesce(impression_2,0) as impressions,
         coalesce(clickthrough_1,0) + coalesce(clickthrough_2,0) as clicks,
         spend_in_micro_dollar / 1000000.0 as spend
-        {% if var('pin_promotion_report_pass_through_metric') %}
-        ,
-        {{ var('pin_promotion_report_pass_through_metric') | join (", ")}}
-
-        {% endif %}
+        {% for metric in var('pin_promotion_report_pass_through_metric') %}
+        , {{ metric }}
+        {% endfor %}
 
     from base
 
