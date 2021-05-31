@@ -1,16 +1,20 @@
 name: 'pinterest_source'
-version: '0.2.0'
+version: '0.3.0'
 config-version: 2
-require-dbt-version: [">=0.18.0", "<0.19.0"]
+require-dbt-version: [">=0.18.0", "<0.20.0"]
 
 vars:
-  pinterest_source:
-    ad_group_history: "{{ source('pinterest_ads','ad_group_history') }}"
-    campaign_history: "{{ source('pinterest_ads','campaign_history') }}"
-    pin_promotion_history: "{{ source('pinterest_ads','pin_promotion_history') }}"
-    pin_promotion_report: "{{ source('pinterest_ads','pin_promotion_report') }}"
-    pin_promotion_report_pass_through_metric: []
+  ad_group_history: "{{ source('pinterest_ads','ad_group_history') }}"
+  campaign_history: "{{ source('pinterest_ads','campaign_history') }}"
+  pin_promotion_history: "{{ source('pinterest_ads','pin_promotion_history') }}"
+  pin_promotion_report: "{{ source('pinterest_ads','pin_promotion_report') }}"
+  dbt_utils_dispatch_list: ['spark_utils', 'fivetran_utils']
+  fivetran_utils_dispatch_list: ['spark_utils']
+  pin_promotion_report_pass_through_metric: []
 
 models:
   pinterest_source:
+    +schema: stg_pinterest
     +materialized: table
+    tmp:
+      +materialized: view

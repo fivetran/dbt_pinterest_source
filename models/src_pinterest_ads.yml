@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: pinterest_ads
     schema: "{{ var('pinterest_schema', 'pinterest_ads') }}"
-    database: "{{ var('pinterest_database', target.database) }}"
+    database: "{% if target.type != 'spark'%}{{ var('pinterest_database', target.database) }}{% endif %}"
     tables:
       - name: pin_promotion_report
         description: Each record represents the daily performance of a Pinterest Pin promotion.

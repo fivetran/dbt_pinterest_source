@@ -1,7 +1,18 @@
 with base as (
 
     select *
-    from {{ var('pin_promotion_report') }}
+    from {{ ref('stg_pinterest_ads__pin_promotion_report_tmp') }}
+
+), macro as (
+
+    select
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_pinterest_ads__pin_promotion_report_tmp')),
+                staging_columns=get_pin_promotion_report_columns()
+            )
+        }}
+    from base
 
 ), fields as (
 
