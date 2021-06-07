@@ -35,7 +35,7 @@ vars:
 ```
 
 ### Passthrough Columns
-This package allows for custom user defined metrics to be passed through to the `stg_pinterest_ads__pin_promotion_report` model. These custom metrics may be applied using the `pin_promotion_report_pass_through_metric` variable. To apply a passthrough metric you will set the sql required to recreate the metric as a string within the variable. This sql will then be referenced and used as a custom field during model generation. See the below example for how to passthrough new metric fields to the final staging model.
+This package allows for custom columns not defined within the `stg_pinterest_ads__pin_promotion_report` model to be passed through. These custom columns may be applied using the `pin_promotion_report_pass_through_metric` variable. To apply a custom passthrough column you will set the `name` and `transform_sql` for each custom field you would like to passthrough. The `name` argument is what you would like the custom field to be named in the generated table. The `transform_sql` argument is the sql required to generate the desired custom column while omitting the `as field_name` at the end. Use the below format for declaring the respective passthrough variables:
 
 ```yml
 # dbt_project.yml
@@ -43,8 +43,12 @@ This package allows for custom user defined metrics to be passed through to the 
 ...
 vars:
   pin_promotion_report_pass_through_metric:
-    - 'coalesce(my_new_field,0) + coalesce(my_new_field,0) as new_metric'
-    - 'other_new_field / 100000.0 as other_new_metric'
+    - name:           'cool_new_field'
+      transform_sql:  'coalesce(new_field_1,0) + coalesce(new_field_2,0)'
+    - name:           'this_other_field'
+      transform_sql:  'other_field / 10000.0'
+    - name:           'simple_field'
+      transform_sql:  'simple_field'
 
 ```
 

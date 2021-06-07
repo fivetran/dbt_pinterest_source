@@ -27,7 +27,7 @@ with base as (
         coalesce(clickthrough_1,0) + coalesce(clickthrough_2,0) as clicks,
         spend_in_micro_dollar / 1000000.0 as spend
         {% for metric in var('pin_promotion_report_pass_through_metric') %}
-        , {{ metric }}
+            , {{ metric.transform_sql }} as {{ metric.name }}
         {% endfor %}
 
     from base
