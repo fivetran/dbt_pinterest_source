@@ -34,6 +34,20 @@ vars:
     pinterest_schema: your_schema_name 
 ```
 
+### Passthrough Columns
+This package allows for custom user defined metrics to be passed through to the `stg_pinterest_ads__pin_promotion_report` model. These custom metrics may be applied using the `pin_promotion_report_pass_through_metric` variable. To apply a passthrough metric you will set the sql required to recreate the metric as a string within the variable. This sql will then be referenced and used as a custom field during model generation. See the below example for how to passthrough new metric fields to the final staging model.
+
+```yml
+# dbt_project.yml
+
+...
+vars:
+  pin_promotion_report_pass_through_metric:
+    - 'coalesce(my_new_field,0) + coalesce(my_new_field,0) as new_metric'
+    - 'other_new_field / 100000.0 as other_new_metric'
+
+```
+
 ### Changing the Build Schema
 By default this package will build the Pinterest Ads staging models within a schema titled (<target_schema> + `_stg_pinterest`) in your target database. If this is not where you would like your Pinterest Ads staging data to be written to, add the following configuration to your `dbt_project.yml` file:
 
