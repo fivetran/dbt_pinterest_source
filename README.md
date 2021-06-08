@@ -35,7 +35,7 @@ vars:
 ```
 
 ### Passthrough Columns
-This package allows for custom columns not defined within the `stg_pinterest_ads__pin_promotion_report` model to be passed through. These custom columns may be applied using the `pin_promotion_report_pass_through_metric` variable. To apply a custom passthrough column use the below format:
+This package allows for custom columns not defined within the `stg_pinterest_ads__pin_promotion_report` model to be passed through. These custom columns may be applied using the `pin_promotion_report_pass_through_metric` variable. To apply custom passthrough columns use the below format:
 
 ```yml
 # dbt_project.yml
