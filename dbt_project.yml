@@ -1,17 +1,13 @@
 name: 'pinterest_source'
-version: '0.3.3'
+version: '0.4.0'
 config-version: 2
-require-dbt-version: [">=0.18.0", "<0.20.0"]
-
+require-dbt-version: [">=0.20.0"]
 vars:
   ad_group_history: "{{ source('pinterest_ads','ad_group_history') }}"
   campaign_history: "{{ source('pinterest_ads','campaign_history') }}"
   pin_promotion_history: "{{ source('pinterest_ads','pin_promotion_history') }}"
   pin_promotion_report: "{{ source('pinterest_ads','pin_promotion_report') }}"
-  dbt_utils_dispatch_list: ['spark_utils', 'fivetran_utils']
-  fivetran_utils_dispatch_list: ['spark_utils']
   pin_promotion_report_pass_through_metric: []
-
 models:
   pinterest_source:
     +schema: stg_pinterest
