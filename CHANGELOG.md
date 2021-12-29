@@ -1,3 +1,10 @@
+# dbt_pinterest_source 0.5.1
+# Feature Additions
+- The `advertiser_history` table has been included as a staging model! This model will allow for the `advertiser_id` and `advertiser_name` to be included in Pinterest Ads analysis. ([#15](https://github.com/fivetran/dbt_pinterest_source/pull/15))
+
+# Contributors
+- @bnealdefero ([#15](https://github.com/fivetran/dbt_pinterest_source/pull/15))
+
 # dbt_pinterest_source v0.5.0
 🎉 dbt v1.0.0 Compatibility 🎉
 ## 🚨 Breaking Changes 🚨
