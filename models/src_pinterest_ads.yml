@@ -68,6 +68,8 @@ sources:
             description: The status of the Campaign. One of "ACTIVE", "ARCHIVED", "PAUSED"
           - name: _fivetran_synced
             description: The time Fivetran synced a record.
+          - name: advertiser_id
+            description: Reference to the advertiser who created the campaign.
 
       - name: ad_group_history
         description: Each record represents a version of a Pinterest Ad Group.
@@ -88,3 +90,27 @@ sources:
             description: Ad group end time. 
           - name: _fivetran_synced
             description: The time Fivetran synced a record.
+      
+      - name: advertiser_history
+        description: Each record represents a version of a Pinterest Advertiser.
+        columns:
+          - name: _fivetran_synced
+            description: The time Fivetran synced a record.
+          - name: owner_user_id
+            description: Identifier of the owner user of the advertiser.
+          - name: created_time
+            description: Timestamp of when the advertiser was created.
+          - name: updated_time
+            description: Timestamp of when the advertiser was updated.
+          - name: id
+            description: Unique identifier of the advertiser
+          - name: name
+            description: Name of the advertiser.
+          - name: test_account
+            description: Boolean indicating if the advertiser is a test account.
+          - name: currency
+            description: Indicates which currency the advertiser is using.
+          - name: country
+            description: Identifies the country of the advertiser.
+          - name: is_one_tap
+            description: Boolean indicating if the advertiser is one tap.
