@@ -1,5 +1,5 @@
 name: 'pinterest_source'
-version: '0.5.0'
+version: '0.6.0'
 config-version: 2
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 vars:
@@ -7,10 +7,17 @@ vars:
   campaign_history: "{{ source('pinterest_ads','campaign_history') }}"
   pin_promotion_history: "{{ source('pinterest_ads','pin_promotion_history') }}"
   pin_promotion_report: "{{ source('pinterest_ads','pin_promotion_report') }}"
+  ad_group_report: "{{ source('pinterest_ads','ad_group_report') }}"
+  advertiser_history: "{{ source('pinterest_ads','advertiser_history') }}"
+  advertiser_report: "{{ source('pinterest_ads','advertiser_report') }}"
+  campaign_report: "{{ source('pinterest_ads','campaign_report') }}"
+  keyword_history: "{{ source('pinterest_ads','keyword_history') }}"
+  keyword_report: "{{ source('pinterest_ads','keyword_report') }}"
+
   pin_promotion_report_pass_through_metric: []
 models:
   pinterest_source:
-    +schema: stg_pinterest
+    +schema: pinterest_source
     +materialized: table
     tmp:
       +materialized: view
