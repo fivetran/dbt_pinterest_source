@@ -14,7 +14,12 @@ vars:
   keyword_history: "{{ source('pinterest_ads','keyword_history') }}"
   keyword_report: "{{ source('pinterest_ads','keyword_report') }}"
 
-  pin_promotion_report_pass_through_metric: []
+  pinterest__pin_promotion_report_passthrough_metrics: []
+  pinterest__ad_group_report_passthrough_metrics: []
+  pinterest__advertiser_report_passthrough_metrics: []
+  pinterest__campaign_report_passthrough_metrics: []
+  pinterest__keyword_report_passthrough_metrics: []
+
 models:
   pinterest_source:
     +schema: pinterest_source

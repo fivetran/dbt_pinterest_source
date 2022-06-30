@@ -52,11 +52,15 @@ vars:
 
 ## (Optional) Step 4: Additional configurations
 ### Passing Through Additional Metrics
-By default, this package will select `clicks`, `impressions`, and `cost` from the `pin_promotion_report` table to report into the staging model. If you would like to pass through additional metrics to the staging models, add the following configuration to your `dbt_project.yml` file:
+By default, this package will select `clicks`, `impressions`, and `cost` from `_report` source tables used by the respective staging models. If you would like to pass through additional metrics to the staging models, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 vars:
     pin_promotion_report_pass_through_metric: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from pinterest.pin_promotion_report
+    pinterest__ad_group_report_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from pinterest.ad_group_report
+    pinterest__advertiser_report_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from pinterest.advertiser_report
+    pinterest__campaign_report_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from pinterest.campaign_report
+    pinterest__keyword_report_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from pinterest.keyword
 ```
 ### Change the build schema
 By default, this package builds the Pinterest Ads staging models within a schema titled (`<target_schema>` + `_pinterest_source`) in your destination. If this is not where you would like your pinterest staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
