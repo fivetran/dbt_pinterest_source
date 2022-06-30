@@ -32,9 +32,9 @@ final as (
         {{ dbt_utils.get_url_parameter('destination_url', 'utm_campaign') }} as utm_campaign,
         {{ dbt_utils.get_url_parameter('destination_url', 'utm_content') }} as utm_content,
         {{ dbt_utils.get_url_parameter('destination_url', 'utm_term') }} as utm_term,
-        name,
+        name as pin_name,
         pin_id,
-        status,
+        status as pin_status,
         creative_type,
         _fivetran_synced
     from fields

@@ -27,7 +27,7 @@ final as (
         billing_type,
         country,
         created_time as created_at,
-        currency,
+        currency as currency_code,
         merchant_id,
         owner_user_id,
         updated_time as updated_at,
