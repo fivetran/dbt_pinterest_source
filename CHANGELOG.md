@@ -1,9 +1,9 @@
 # dbt_pinterest_source v0.6.0
 
 ## 🚨 Breaking Changes 🚨
-The `pin_promotion_report_pass_through_metric` variable has been renamed to `pinterest__pin_promotion_report_passthrough_metrics`.
+The `pin_promotion_report_pass_through_metric` variable has been renamed to `pinterest__pin_promotion_report_passthrough_metrics`. ([#18](https://github.com/fivetran/dbt_pinterest_source/pull/18))
 ## 🎉 Feature Enhancements 🎉
-PR #TBD includes the following changes:
+PR [#18](https://github.com/fivetran/dbt_pinterest_source/pull/18) includes the following changes:
 - Addition of the following staging models which pull from the source counterparts. The inclusion of the additional `_report` source tables is to generate a more accurate representation of the Pinterest Ads data. For example, not all Ad types are included within the `pin_promotion_report` table. Therefore, the addition of the further grain reports will allow for more flexibility and accurate Pinterest Ad reporting. 
   - `stg_pinterest_ads__ad_group_report`
   - `stg_pinterest_ads__advertiser_report`
@@ -23,7 +23,7 @@ PR #TBD includes the following changes:
 - Included grain uniqueness tests for each staging table. 
 
 ## Contributors
-- [@bnealdefero](https://github.com/bnealdefero) ([]())
+- [@bnealdefero](https://github.com/bnealdefero) ([#18](https://github.com/fivetran/dbt_pinterest_source/pull/18))
 
 # dbt_pinterest_source v0.5.0
 🎉 dbt v1.0.0 Compatibility 🎉
