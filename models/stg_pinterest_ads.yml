@@ -194,7 +194,7 @@ models:
       - name: created_at
         description: "{{ doc('created_at') }}"
       - name: currency_code
-        description: The currency code which the a
+        description: The currency code which the advertiser is set up using.
       - name: merchant_id
         description: Unique ID of the merchant associated with the advertiser.
       - name: owner_user_id
@@ -268,6 +268,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - keyword_id
+            - ad_group_id
             - _fivetran_synced
     columns:
       - name: keyword_id
