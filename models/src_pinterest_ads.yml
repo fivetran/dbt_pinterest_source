@@ -103,7 +103,7 @@ sources:
             description: "{{ doc('_fivetran_synced') }}"
 
       - name: ad_group_report
-        description: source table
+        description: Each record represents the daily performance of a Pinterest ad group.
         identifier: "{{ var('pinterest_ad_group_report_identifier', 'ad_group_report') }}"
         columns:
           - name: date
@@ -132,7 +132,7 @@ sources:
             description: "{{ doc('spend_in_micro_dollar') }}"
 
       - name: advertiser_history
-        description: source table
+        description: Each record represents a version of a Pinterest advertiser.
         identifier: "{{ var('pinterest_advertiser_history_identifier', 'advertiser_history') }}"
         columns:
           - name: id
@@ -161,7 +161,7 @@ sources:
             description: "{{ doc('_fivetran_synced') }}"
 
       - name: advertiser_report
-        description: source table
+        description: Each record represents the daily performance of a Pinterest advertiser.
         identifier: "{{ var('pinterest_advertiser_report_identifier', 'advertiser_report') }}"
         columns:
           - name: date
@@ -182,7 +182,7 @@ sources:
             description: "{{ doc('spend_in_micro_dollar') }}"
 
       - name: campaign_report
-        description: source table
+        description: Each record represents the daily performance of a Pinterest campaign.
         identifier: "{{ var('pinterest_campaign_report_identifier', 'campaign_report') }}"
         columns:
           - name: date
@@ -209,7 +209,7 @@ sources:
             description: "{{ doc('spend_in_micro_dollar') }}"
 
       - name: keyword_history
-        description: source table
+        description: Each record represents a version of a Pinterest keyword.
         identifier: "{{ var('pinterest_keyword_history_identifier', 'keyword_history') }}"
         columns:
           - name: id
@@ -236,7 +236,7 @@ sources:
             description: Identifier of what grain the parent type is. Ad group or campaign.
 
       - name: keyword_report
-        description: source table
+        description: Each record represents the daily performance of a Pinterest key word.
         identifier: "{{ var('pinterest_keyword_report_identifier', 'keyword_report') }}"
         columns:
           - name: date

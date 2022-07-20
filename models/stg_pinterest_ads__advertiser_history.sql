@@ -30,8 +30,7 @@ final as (
         currency as currency_code,
         merchant_id,
         owner_user_id,
-        updated_time as updated_at,
-        _fivetran_synced
+        updated_time as updated_at
     from fields
 ),
 

@@ -106,12 +106,15 @@ models:
         description: The utm_term parameter of the ad, extracted from the `destination_url`.
 
   - name: stg_pinterest_ads__pin_promotion_report
-    description: Each record represents the daily performance of a Pinterest Pin promotion.
+    description: Each record represents the daily performance of a Pinterest Pin promotion by ad group, campaign, and advertiser.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - date_day
             - pin_promotion_id
+            - ad_group_id
+            - campaign_id
+            - advertiser_id
     columns: 
       - name: date_day
         description: "{{ doc('date_day') }}"
@@ -127,8 +130,6 @@ models:
         description: "{{ doc('campaign_id') }}"
       - name: advertiser_id
         description: "{{ doc('advertiser_id') }}"
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
       - name: clicks
@@ -137,12 +138,13 @@ models:
         description: "{{ doc('spend') }}"
 
   - name: stg_pinterest_ads__ad_group_report
-    description: Each record represents the daily performance of a Pinterest Ad Groups.
+    description: Each record represents the daily performance of a Pinterest Ad Groups by advertiser.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - date_day
             - ad_group_id
+            - advertiser_id
     columns:
       - name: date_day
         description: "{{ doc('date_day') }}"
@@ -160,8 +162,6 @@ models:
         description: "{{ doc('campaign_id') }}"
       - name: advertiser_id
         description: "{{ doc('advertiser_id') }}"
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
       - name: clicks
@@ -201,8 +201,6 @@ models:
         description: Unique identifier of the owner user.
       - name: updated_at
         description: "{{ doc('updated_at') }}"
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
 
@@ -222,8 +220,6 @@ models:
         description: "{{ doc('advertiser_id') }}"
         tests:
           - not_null
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
       - name: clicks
@@ -232,12 +228,13 @@ models:
         description: "{{ doc('spend') }}"
 
   - name: stg_pinterest_ads__campaign_report
-    description: Each record represents the daily performance of Campaigns.
+    description: Each record represents the daily performance of Campaigns by advertiser.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - date_day
             - campaign_id
+            - advertiser_id
     columns:
       - name: date_day
         description: "{{ doc('date_day') }}"
@@ -253,8 +250,6 @@ models:
         description: Status of the campaign.
       - name: advertiser_id
         description: "{{ doc('advertiser_id') }}"
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
       - name: clicks
@@ -299,12 +294,15 @@ models:
         description: "{{ doc('is_most_recent_record') }}"
 
   - name: stg_pinterest_ads__keyword_report
-    description: Each record represents the daily performance of Keywords.
+    description: Each record represents the daily performance of Keywords by ad group, campaign, and advertiser.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - date_day
             - keyword_id
+            - ad_group_id
+            - campaign_id
+            - advertiser_id
     columns:
       - name: date_day
         description: "{{ doc('date_day') }}"
@@ -326,8 +324,6 @@ models:
         description: "{{ doc('campaign_id') }}"
       - name: advertiser_id
         description: "{{ doc('advertiser_id') }}"
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
       - name: clicks

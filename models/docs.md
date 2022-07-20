@@ -12,9 +12,9 @@
 
 {% docs advertiser_id %} The ID of the related Advertiser. {% enddocs %}
 
-{% docs impressions %} The number of impressions that occurred on the day of the record. {% enddocs %}
+{% docs impressions %} The number of paid and earned impressions that occurred on the day of the record. {% enddocs %}
 
-{% docs clicks %} The number of clicks that occurred on the day of the record. {% enddocs %}
+{% docs clicks %} The number of paid and earned clicks that occurred on the day of the record. {% enddocs %}
 
 {% docs spend %} The amount of spend that occurred on the day of the record. {% enddocs %}
 
