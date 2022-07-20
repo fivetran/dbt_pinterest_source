@@ -138,12 +138,13 @@ models:
         description: "{{ doc('spend') }}"
 
   - name: stg_pinterest_ads__ad_group_report
-    description: Each record represents the daily performance of a Pinterest Ad Groups by advertiser.
+    description: Each record represents the daily performance of a Pinterest Ad Groups by campaign and advertiser.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - date_day
             - ad_group_id
+            - campaign_id
             - advertiser_id
     columns:
       - name: date_day
