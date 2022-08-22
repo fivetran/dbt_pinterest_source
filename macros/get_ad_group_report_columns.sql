@@ -15,6 +15,8 @@
     {"name": "spend_in_micro_dollar", "datatype": dbt_utils.type_int()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('pinterest__ad_group_report_passthrough_metrics')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}

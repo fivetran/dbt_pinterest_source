@@ -1,3 +1,4 @@
+{{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True)) }}
 
 with base as (
 
@@ -30,17 +31,10 @@ final as (
         currency as currency_code,
         merchant_id,
         owner_user_id,
-        updated_time as updated_at
+        updated_time as updated_at,
+        row_number() over (partition by id order by updated_time desc) = 1 as is_most_recent_record
     from fields
-),
-
-most_recent as (
-    select
-        *,
-        row_number() over (partition by advertiser_id order by updated_at desc) = 1 as is_most_recent_record
-    from final
-
 )
 
 select *
-from most_recent
+from final

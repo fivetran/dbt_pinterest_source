@@ -1,3 +1,4 @@
+{{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True)) }}
 
 with base as (
 
@@ -32,9 +33,7 @@ final as (
         coalesce(clickthrough_1,0) + coalesce(clickthrough_2,0) as clicks,
         spend_in_micro_dollar / 1000000.0 as spend
 
-        {% for metric in var('pinterest__keyword_report_passthrough_metrics',[]) %}
-            , {{ metric }}
-        {% endfor %}
+        {{ fivetran_utils.fill_pass_through_columns('pinterest__keyword_report_passthrough_metrics') }}
 
     from fields
 )

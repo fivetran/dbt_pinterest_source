@@ -1,3 +1,5 @@
+{{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True)) }}
+
 with base as (
 
     select *
@@ -36,17 +38,10 @@ final as (
         pin_id,
         status as pin_status,
         creative_type,
-        _fivetran_synced
+        _fivetran_synced,
+        row_number() over (partition by id order by _fivetran_synced desc) = 1 as is_most_recent_record
     from fields
-), 
-
-surrogate_key as (
-
-    select 
-        *,
-        row_number() over (partition by pin_promotion_id order by _fivetran_synced desc) = 1 as is_most_recent_record
-    from final
 )
 
 select *
-from surrogate_key
+from final

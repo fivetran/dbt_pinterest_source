@@ -1,3 +1,5 @@
+{{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True)) }}
+
 with base as (
 
     select *
@@ -26,16 +28,10 @@ final as (
         campaign_id,
         created_time as created_at,
         end_time,
-        start_time
+        start_time,
+        row_number() over (partition by id order by _fivetran_synced desc) = 1 as is_most_recent_record
     from fields
-),
-
-most_recent as (
-    select
-        *,
-        row_number() over (partition by ad_group_id order by _fivetran_synced desc) = 1 as is_most_recent_record
-    from final
 )
 
 select *
-from most_recent
+from final
