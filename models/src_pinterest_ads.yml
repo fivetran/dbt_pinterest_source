@@ -12,12 +12,13 @@ sources:
       warn_after: {count: 48, period: hour}
       error_after: {count: 168, period: hour}
 
+    config:
+      enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) }}"
+
     tables:
       - name: pin_promotion_report
         description: Each record represents the daily performance of a Pinterest Pin promotion.
         identifier: "{{ var('pinterest_pin_promotion_report_identifier', 'pin_promotion_report') }}"
-        config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) }}"
         columns:
           - name: date
             description: "{{ doc('date_day') }}"
@@ -45,8 +46,6 @@ sources:
       - name: pin_promotion_history
         description: Each record represents a version of a Pinterest Pin promotion.
         identifier: "{{ var('pinterest_pin_promotion_history_identifier', 'pin_promotion_history') }}"
-        config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) }}"
         columns:
           - name: id
             description: "{{ doc('pin_promotion_id') }}"
@@ -73,8 +72,6 @@ sources:
       - name: campaign_history
         description: Each record represents a version of a Pinterest Campaign.
         identifier: "{{ var('pinterest_campaign_history_identifier', 'campaign_history') }}"
-        config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) }}"
         columns:
           - name: id
             description: "{{ doc('campaign_id') }}"
@@ -90,8 +87,6 @@ sources:
       - name: ad_group_history
         description: Each record represents a version of a Pinterest Ad Group.
         identifier: "{{ var('pinterest_ad_group_history_identifier', 'ad_group_history') }}"
-        config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) }}"
         columns:
           - name: id
             description: "{{ doc('ad_group_id') }}"
@@ -113,8 +108,6 @@ sources:
       - name: ad_group_report
         description: Each record represents the daily performance of a Pinterest ad group.
         identifier: "{{ var('pinterest_ad_group_report_identifier', 'ad_group_report') }}"
-        config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) }}"
         columns:
           - name: date
             description: "{{ doc('date_day') }}"
@@ -144,8 +137,6 @@ sources:
       - name: advertiser_history
         description: Each record represents a version of a Pinterest advertiser.
         identifier: "{{ var('pinterest_advertiser_history_identifier', 'advertiser_history') }}"
-        config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) }}"
         columns:
           - name: id
             description: "{{ doc('advertiser_id') }}"
@@ -175,8 +166,6 @@ sources:
       - name: advertiser_report
         description: Each record represents the daily performance of a Pinterest advertiser.
         identifier: "{{ var('pinterest_advertiser_report_identifier', 'advertiser_report') }}"
-        config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) }}"
         columns:
           - name: date
             description: "{{ doc('date_day') }}"
@@ -198,8 +187,6 @@ sources:
       - name: campaign_report
         description: Each record represents the daily performance of a Pinterest campaign.
         identifier: "{{ var('pinterest_campaign_report_identifier', 'campaign_report') }}"
-        config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) }}"
         columns:
           - name: date
             description: "{{ doc('date_day') }}"
@@ -227,8 +214,6 @@ sources:
       - name: keyword_history
         description: Each record represents a version of a Pinterest keyword.
         identifier: "{{ var('pinterest_keyword_history_identifier', 'keyword_history') }}"
-        config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) }}"
         columns:
           - name: id
             description: Unique identifier of the keyword.
@@ -256,8 +241,6 @@ sources:
       - name: keyword_report
         description: Each record represents the daily performance of a Pinterest key word.
         identifier: "{{ var('pinterest_keyword_report_identifier', 'keyword_report') }}"
-        config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) }}"
         columns:
           - name: date
             description: "{{ doc('date_day') }}"
