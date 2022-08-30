@@ -21,7 +21,7 @@ fields as (
 final as (
 
     select 
-        date as date_day,
+        {{ dbt_utils.date_trunc('day', 'date') }} as date_day,
         pin_promotion_id,
         ad_group_id,
         campaign_id,

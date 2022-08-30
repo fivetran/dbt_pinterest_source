@@ -21,7 +21,7 @@ fields as (
 final as (
     
     select 
-        date as date_day,
+        {{ dbt_utils.date_trunc('day', 'date') }} as date_day,
         advertiser_id,
         coalesce(impression_1,0) + coalesce(impression_2,0) as impressions,
         coalesce(clickthrough_1,0) + coalesce(clickthrough_2,0) as clicks,
