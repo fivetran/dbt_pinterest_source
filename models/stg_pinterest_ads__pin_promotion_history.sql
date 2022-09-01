@@ -1,9 +1,12 @@
+{{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True)) }}
+
 with base as (
 
     select *
     from {{ ref('stg_pinterest_ads__pin_promotion_history_tmp') }}
+), 
 
-), macro as (
+fields as (
 
     select
 
@@ -13,15 +16,15 @@ with base as (
                 staging_columns=get_pin_promotion_history_columns()
             )
         }}
-
     from base
+), 
 
-), fields as (
+final as (
 
     select
         id as pin_promotion_id,
         ad_group_id,
-        created_time as created_timestamp,
+        created_time as created_at,
         destination_url,
         {{ dbt_utils.split_part('destination_url', "'?'", 1) }} as base_url,
         {{ dbt_utils.get_url_host('destination_url') }} as url_host,
@@ -31,21 +34,14 @@ with base as (
         {{ dbt_utils.get_url_parameter('destination_url', 'utm_campaign') }} as utm_campaign,
         {{ dbt_utils.get_url_parameter('destination_url', 'utm_content') }} as utm_content,
         {{ dbt_utils.get_url_parameter('destination_url', 'utm_term') }} as utm_term,
-        name,
+        name as pin_name,
         pin_id,
-        status,
+        status as pin_status,
         creative_type,
-        _fivetran_synced
-    from macro
-
-), surrogate_key as (
-
-    select 
-        *,
-        {{ dbt_utils.surrogate_key(['pin_promotion_id','_fivetran_synced'] )}} as version_id
+        _fivetran_synced,
+        row_number() over (partition by id order by _fivetran_synced desc) = 1 as is_most_recent_record
     from fields
-
 )
 
 select *
-from surrogate_key
+from final

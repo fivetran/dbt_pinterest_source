@@ -1,9 +1,12 @@
+{{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True)) }}
+
 with base as (
 
     select *
     from {{ ref('stg_pinterest_ads__ad_group_history_tmp') }}
+), 
 
-), fields as (
+fields as (
 
     select
         {{
@@ -13,15 +16,22 @@ with base as (
             )
         }}
     from base
+), 
 
-), surrogate_key as (
+final as (
 
     select 
-        *,
-        {{ dbt_utils.surrogate_key(['ad_group_id','_fivetran_synced'] )}} as version_id
+        id as ad_group_id,
+        name as ad_group_name,
+        status as ad_group_status,
+        _fivetran_synced,
+        campaign_id,
+        created_time as created_at,
+        end_time,
+        start_time,
+        row_number() over (partition by id order by _fivetran_synced desc) = 1 as is_most_recent_record
     from fields
-
 )
 
 select *
-from surrogate_key
+from final
