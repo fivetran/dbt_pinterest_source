@@ -1,7 +1,7 @@
 name: 'pinterest_source'
-version: '0.6.0'
+version: '0.7.0'
 config-version: 2
-require-dbt-version: [">=1.0.0", "<2.0.0"]
+require-dbt-version: [">=1.2.0", "<2.0.0"]
 vars:
   ad_group_history: "{{ source('pinterest_ads','ad_group_history') }}"
   campaign_history: "{{ source('pinterest_ads','campaign_history') }}"
@@ -13,13 +13,11 @@ vars:
   campaign_report: "{{ source('pinterest_ads','campaign_report') }}"
   keyword_history: "{{ source('pinterest_ads','keyword_history') }}"
   keyword_report: "{{ source('pinterest_ads','keyword_report') }}"
-
   pinterest__pin_promotion_report_passthrough_metrics: []
   pinterest__ad_group_report_passthrough_metrics: []
   pinterest__advertiser_report_passthrough_metrics: []
   pinterest__campaign_report_passthrough_metrics: []
   pinterest__keyword_report_passthrough_metrics: []
-
 models:
   pinterest_source:
     +schema: pinterest_source
