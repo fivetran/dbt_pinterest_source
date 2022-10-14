@@ -26,7 +26,7 @@ final as (
         ad_group_id,
         created_time as created_at,
         destination_url,
-        {{ dbt_utils.split_part('destination_url', "'?'", 1) }} as base_url,
+        {{ dbt.split_part('destination_url', "'?'", 1) }} as base_url,
         {{ dbt_utils.get_url_host('destination_url') }} as url_host,
         '/' || {{ dbt_utils.get_url_path('destination_url') }} as url_path,
         {{ dbt_utils.get_url_parameter('destination_url', 'utm_source') }} as utm_source,
