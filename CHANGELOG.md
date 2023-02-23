@@ -1,3 +1,6 @@
+# dbt_pinterest_source v0.7.1
+## 🔧 Fixes
+- Added `pin_promotion_id` to unique-combination-of-columns test for model `stg_pinterest_ads` to remedy test failures. ([#21](https://github.com/fivetran/dbt_pinterest_source/pull/21))
 # dbt_pinterest_source v0.7.0
 
 ## 🚨 Breaking Changes 🚨:
