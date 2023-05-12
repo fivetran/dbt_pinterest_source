@@ -33,13 +33,13 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
-## Step 2: Install the package
-Include the following pinterest_source package version in your `packages.yml` file.
+## Step 2: Install the package (skip if also using the `pinterest` transformation package)
+If you  are **not** using the [Pinterest transformation package](https://github.com/fivetran/dbt_pinterest), include the following pinterest_source package version in your `packages.yml` file.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 ```yaml
 packages:
   - package: fivetran/pinterest_source
-    version: [">=0.7.0", "<0.8.0"]
+    version: [">=0.7.0", "<0.8.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `pinterest` schema. If this is not where your Pinterest Ads data is (for example, if your pinterest schema is named `pinterest_fivetran`), add the following configuration to your root `dbt_project.yml` file:
