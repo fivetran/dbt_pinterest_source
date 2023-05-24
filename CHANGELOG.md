@@ -1,8 +1,9 @@
-# dbt_pinterest_source v0.UPDATE.UPDATE
-
- ## Under the Hood:
-- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
-- Updated the pull request [templates](/.github).
+# dbt_pinterest_source v0.7.2
+## Features
+- Addition of the `pinterest__using_keywords` (default=`true`) variable that allows users to disable the relevant keyword reports in the downstream Pinterest models if they are not used.
+## Under the Hood:
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([PR #22](https://github.com/fivetran/dbt_pinterest_source/pull/22))
+- Updated the pull request [templates](/.github). ([PR #22](https://github.com/fivetran/dbt_pinterest_source/pull/22))
 
 # dbt_pinterest_source v0.7.1
 ## 🔧 Fixes
