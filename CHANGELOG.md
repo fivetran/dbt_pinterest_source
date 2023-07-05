@@ -1,3 +1,20 @@
+# dbt_pinterest_source v0.8.0
+## Pinterest API v5 Updates
+- Following Pinterest Ads deprecating the v4 API on June 30, 2023 in place of v5, the Pinterest Ads Fivetran connector now leverages the Pinterest v5 API. The following fields have been deprecated/ introduced:
+
+| **Model** | **Removed**  | **New**   |
+|---|---|---|
+|  [stg_pinterest_ads__advertiser_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__advertiser_history) | 
+    - `billing_profile_status`
+    - `billing_type`
+    - `merchant_id`
+    - `owner_user_id`
+    - `status`  |   |
+|  [stg_pinterest_ads__campaign_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__campaign_history) | x  | s  |
+|  [stg_pinterest_ads__ad_group_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__ad_group_history) | x  | s  |
+|   |   |   |
+|   |   |   |
+
 # dbt_pinterest_source v0.7.2
 ## Features
 - Addition of the `pinterest__using_keywords` (default=`true`) variable that allows users to disable the relevant keyword reports in the downstream Pinterest models if they are not used. ([PR #23](https://github.com/fivetran/dbt_pinterest_source/pull/23))
