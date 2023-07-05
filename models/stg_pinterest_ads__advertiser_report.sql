@@ -22,7 +22,7 @@ final as (
     
     select 
         {{ dbt.date_trunc('day', 'date') }} as date_day,
-        advertiser_id,
+        ad_account_id,
         coalesce(impression_1,0) + coalesce(impression_2,0) as impressions,
         coalesce(clickthrough_1,0) + coalesce(clickthrough_2,0) as clicks,
         spend_in_micro_dollar / 1000000.0 as spend

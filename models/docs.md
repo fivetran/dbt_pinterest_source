@@ -10,7 +10,7 @@
 
 {% docs campaign_id %} The ID of the related Campaign. {% enddocs %}
 
-{% docs advertiser_id %} The ID of the related Advertiser. {% enddocs %}
+{% docs ad_account_id %} The ID of the related Advertiser. {% enddocs %}
 
 {% docs impressions %} The number of paid and earned impressions that occurred on the day of the record. {% enddocs %}
 

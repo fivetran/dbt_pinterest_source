@@ -44,8 +44,8 @@ models:
           - not_null
       - name: created_at
         description: Campaign creation time. 
-      - name: advertiser_id
-        description: "{{ doc('advertiser_id') }}"
+      - name: ad_account_id
+        description: "{{ doc('ad_account_id') }}"
       - name: campaign_name
         description: Campaign name.
       - name: campaign_status
@@ -114,7 +114,7 @@ models:
             - pin_promotion_id
             - ad_group_id
             - campaign_id
-            - advertiser_id
+            - ad_account_id
     columns: 
       - name: date_day
         description: "{{ doc('date_day') }}"
@@ -128,8 +128,8 @@ models:
         description: "{{ doc('ad_group_id') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
-      - name: advertiser_id
-        description: "{{ doc('advertiser_id') }}"
+      - name: ad_account_id
+        description: "{{ doc('ad_account_id') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
       - name: clicks
@@ -145,7 +145,7 @@ models:
             - date_day
             - ad_group_id
             - campaign_id
-            - advertiser_id
+            - ad_account_id
     columns:
       - name: date_day
         description: "{{ doc('date_day') }}"
@@ -161,8 +161,8 @@ models:
         description: Status of the ad group.
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
-      - name: advertiser_id
-        description: "{{ doc('advertiser_id') }}"
+      - name: ad_account_id
+        description: "{{ doc('ad_account_id') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
       - name: clicks
@@ -176,10 +176,10 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - updated_at
-            - advertiser_id
+            - ad_account_id
     columns:
-      - name: advertiser_id
-        description: "{{ doc('advertiser_id') }}"
+      - name: ad_account_id
+        description: "{{ doc('ad_account_id') }}"
         tests:
           - not_null
       - name: advertiser_name
@@ -201,14 +201,14 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - date_day
-            - advertiser_id
+            - ad_account_id
     columns:
       - name: date_day
         description: "{{ doc('date_day') }}"
         tests:
           - not_null
-      - name: advertiser_id
-        description: "{{ doc('advertiser_id') }}"
+      - name: ad_account_id
+        description: "{{ doc('ad_account_id') }}"
         tests:
           - not_null
       - name: impressions
@@ -225,7 +225,7 @@ models:
           combination_of_columns:
             - date_day
             - campaign_id
-            - advertiser_id
+            - ad_account_id
     columns:
       - name: date_day
         description: "{{ doc('date_day') }}"
@@ -239,8 +239,8 @@ models:
         description: Name of the campaign.
       - name: campaign_status
         description: Status of the campaign.
-      - name: advertiser_id
-        description: "{{ doc('advertiser_id') }}"
+      - name: ad_account_id
+        description: "{{ doc('ad_account_id') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
       - name: clicks
@@ -269,8 +269,8 @@ models:
         description: "{{ doc('_fivetran_synced') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
-      - name: advertiser_id
-        description: "{{ doc('advertiser_id') }}"
+      - name: ad_account_id
+        description: "{{ doc('ad_account_id') }}"
       - name: archived
         description: Boolean indicating if the keyword is archived.
       - name: bid
@@ -294,7 +294,7 @@ models:
             - pin_promotion_id
             - ad_group_id
             - campaign_id
-            - advertiser_id
+            - ad_account_id
     columns:
       - name: date_day
         description: "{{ doc('date_day') }}"
@@ -314,8 +314,8 @@ models:
         description: Status of the ad group.
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
-      - name: advertiser_id
-        description: "{{ doc('advertiser_id') }}"
+      - name: ad_account_id
+        description: "{{ doc('ad_account_id') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
       - name: clicks

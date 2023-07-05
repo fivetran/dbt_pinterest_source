@@ -21,7 +21,7 @@ fields as (
 final as (
     
     select 
-        id as advertiser_id,
+        id as ad_account_id,
         name as advertiser_name,
         country,
         created_time as created_at,

@@ -3,7 +3,7 @@
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "ad_group_id", "datatype": dbt.type_string()},
-    {"name": "advertiser_id", "datatype": dbt.type_string()},
+    {"name": "ad_account_id", "datatype": dbt.type_string()},
     {"name": "campaign_id", "datatype": dbt.type_string()},
     {"name": "clickthrough_1", "datatype": dbt.type_numeric()},
     {"name": "clickthrough_2", "datatype": dbt.type_numeric()},

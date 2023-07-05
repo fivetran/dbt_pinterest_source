@@ -5,7 +5,7 @@
     {"name": "ad_group_id", "datatype": dbt.type_string()},
     {"name": "ad_group_name", "datatype": dbt.type_string()},
     {"name": "ad_group_status", "datatype": dbt.type_string()},
-    {"name": "advertiser_id", "datatype": dbt.type_string()},
+    {"name": "ad_account_id", "datatype": dbt.type_string()},
     {"name": "campaign_id", "datatype": dbt.type_int()},
     {"name": "clickthrough_1", "datatype": dbt.type_int()},
     {"name": "clickthrough_2", "datatype": dbt.type_int()},

@@ -25,7 +25,7 @@ final as (
         pin_promotion_id,
         ad_group_id,
         campaign_id,
-        advertiser_id,
+        ad_account_id,
         coalesce(impression_1,0) + coalesce(impression_2,0) as impressions,
         coalesce(clickthrough_1,0) + coalesce(clickthrough_2,0) as clicks,
         spend_in_micro_dollar / 1000000.0 as spend
