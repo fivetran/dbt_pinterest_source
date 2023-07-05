@@ -25,6 +25,12 @@ models:
         description: Ad group start time. 
       - name: end_time
         description: Ad group end time. 
+      - name: pacing_delivery_type
+        description: Ad group pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. When using CBO, only the STANDARD pacing delivery type is allowed.
+      - name: placement_group
+        description: The placement group. "ALL", "SEARCH", "BROWSE", or "OTHER"
+      - name: summary_status
+        description: Summary status. "RUNNING", "PAUSED", "NOT_STARTED", "COMPLETED", "ADVERTISER_DISABLED", "ARCHIVED"
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
       - name: is_most_recent_record

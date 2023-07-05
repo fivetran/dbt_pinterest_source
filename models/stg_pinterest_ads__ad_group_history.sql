@@ -28,7 +28,10 @@ final as (
         campaign_id,
         created_time as created_at,
         end_time,
+        pacing_delivery_type,
+        placement_group,
         start_time,
+        summary_status,
         row_number() over (partition by id order by _fivetran_synced desc) = 1 as is_most_recent_record
     from fields
 )
