@@ -208,6 +208,10 @@ models:
         description: The currency code which the advertiser is set up using.
       - name: updated_at
         description: "{{ doc('updated_at') }}"
+      - name: owner_username
+        description: Advertiser's username.
+      - name: permissions
+        description: The permissions associated with this account.
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
 
