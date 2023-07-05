@@ -184,22 +184,12 @@ models:
           - not_null
       - name: advertiser_name
         description: Name of the advertiser.
-      - name: advertiser_status
-        description: Status of the advertiser.
-      - name: billing_profile_status
-        description: Status of the billing profile.
-      - name: billing_type
-        description: The billing type of the advertiser. Will typically be CREDIT_CARD or INVOICE.
       - name: country
         description: The country code where the advertiser is located.
       - name: created_at
         description: "{{ doc('created_at') }}"
       - name: currency_code
         description: The currency code which the advertiser is set up using.
-      - name: merchant_id
-        description: Unique ID of the merchant associated with the advertiser.
-      - name: owner_user_id
-        description: Unique identifier of the owner user.
       - name: updated_at
         description: "{{ doc('updated_at') }}"
       - name: is_most_recent_record

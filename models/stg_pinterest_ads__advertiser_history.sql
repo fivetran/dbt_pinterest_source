@@ -23,14 +23,9 @@ final as (
     select 
         id as advertiser_id,
         name as advertiser_name,
-        status as advertiser_status,
-        billing_profile_status,
-        billing_type,
         country,
         created_time as created_at,
         currency as currency_code,
-        merchant_id,
-        owner_user_id,
         updated_time as updated_at,
         row_number() over (partition by id order by updated_time desc) = 1 as is_most_recent_record
     from fields

@@ -142,22 +142,12 @@ sources:
             description: "{{ doc('advertiser_id') }}"
           - name: name
             description: Name of the advertiser.
-          - name: status
-            description: Status of the advertiser.
-          - name: billing_profile_status
-            description: Status of the billing profile.
-          - name: billing_type
-            description: The billing type of the advertiser. Will typically be CREDIT_CARD or INVOICE.
           - name: country
             description: The country code where the advertiser is located.
           - name: created_time
             description: "{{ doc('created_at') }}"
           - name: currency
             description: The currency code which the a
-          - name: merchant_id
-            description: Unique ID of the merchant associated with the advertiser.
-          - name: owner_user_id
-            description: Unique identifier of the owner user.
           - name: updated_time
             description: "{{ doc('updated_at') }}"
           - name: _fivetran_synced
