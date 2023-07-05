@@ -23,6 +23,7 @@ final as (
 
     select
         id as pin_promotion_id,
+        ad_account_id as advertiser_id,
         ad_group_id,
         created_time as created_at,
         destination_url,

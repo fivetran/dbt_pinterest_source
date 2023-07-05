@@ -81,6 +81,8 @@ models:
         description: Pin promotion ID.
         tests:
           - not_null
+      - name: advertiser_id
+        description: "{{ doc('advertiser_id') }}"
       - name: ad_group_id
         description: Pin promotion ad group ID.
       - name: created_at
