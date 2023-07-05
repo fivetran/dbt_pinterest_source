@@ -21,11 +21,13 @@ fields as (
 final as (
     
     select 
-        id as ad_account_id,
+        id as advertiser_id,
         name as advertiser_name,
         country,
         created_time as created_at,
         currency as currency_code,
+        owner_username,
+        permissions,
         updated_time as updated_at,
         row_number() over (partition by id order by updated_time desc) = 1 as is_most_recent_record
     from fields

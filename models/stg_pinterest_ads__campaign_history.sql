@@ -23,7 +23,7 @@ final as (
     select 
         id as campaign_id,
         name as campaign_name,
-        ad_account_id,
+        ad_account_id as advertiser_id,
         status as campaign_status,
         _fivetran_synced,
         created_time as created_at,
