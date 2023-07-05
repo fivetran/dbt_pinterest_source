@@ -5,24 +5,10 @@
 
 | **Model** | **Removed**  | **New**   |
 |---|---|---|
-|  [stg_pinterest_ads__advertiser_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__advertiser_history) | 
-    - `billing_profile_status`
-    - `billing_type`
-    - `merchant_id`
-    - `owner_user_id`
-    - `status`  | 
-    - `owner_username`
-    - `permissions`  |
-|  [stg_pinterest_ads__campaign_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__campaign_history) | 
-    - `campaign_budget_optimization_enabled`  | 
-    - `default_ad_group_budget_in_micro_currency`
-    - `is_automated_campaign`
-    - `is_campaign_budget_optimization`
-    - `is_flexible_daily_budgets`  |
-|  [stg_pinterest_ads__ad_group_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__ad_group_history) | | 
-- `pacing_delivery_type`
-- `placement_group`
-- `summary_status` |
+|  [stg_pinterest_ads__advertiser_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__advertiser_history) | `billing_profile_status`, `billing_type`, `merchant_id`, `owner_user_id`, `status`  | `owner_username`, `permissions`  |
+|  [stg_pinterest_ads__campaign_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__campaign_history) |`campaign_budget_optimization_enabled`  | `default_ad_group_budget_in_micro_currency`, `is_automated_campaign`, `is_campaign_budget_optimization`, `is_flexible_daily_budgets`  |
+|  [stg_pinterest_ads__ad_group_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__ad_group_history) |  | `pacing_delivery_type`, `placement_group`, `summary_status` |
+
 
 - In the v5 upgrade, `advertiser_id` has been replaced by `ad_account_id`. However, to keep our Pinterest Ads package standard with our other ad packages, we have kept it as `advertiser_id`.
 
