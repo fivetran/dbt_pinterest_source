@@ -1,4 +1,5 @@
 # dbt_pinterest_source v0.8.0
+[PR #25](https://github.com/fivetran/dbt_pinterest_source/pull/25) introduces the following changes:
 ## Pinterest API v5 Updates
 - Following Pinterest Ads deprecating the v4 API on June 30, 2023 in place of v5, the Pinterest Ads Fivetran connector now leverages the Pinterest v5 API. The following fields have been deprecated/ introduced:
 
