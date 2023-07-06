@@ -8,7 +8,7 @@
     {"name": "id", "datatype": dbt.type_string()},
     {"name": "owner_username", "datatype": dbt.type_string()},
     {"name": "name", "datatype": dbt.type_string()},
-    {"name": "permissions", "datatype": dbt.type_string()},
+    {"name": "permissions", "datatype": dbt.type_string(), "alias": "advertiser_permissions"},
     {"name": "updated_time", "datatype": dbt.type_timestamp()}
 ] %}
 
