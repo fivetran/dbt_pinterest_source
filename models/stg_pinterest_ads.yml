@@ -210,7 +210,7 @@ models:
         description: "{{ doc('updated_at') }}"
       - name: owner_username
         description: Advertiser's username.
-      - name: permissions
+      - name: advertiser_permissions
         description: The permissions associated with this account.
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
