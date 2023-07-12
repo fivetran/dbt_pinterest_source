@@ -24,6 +24,7 @@ final as (
         id as ad_group_id,
         name as ad_group_name,
         status as ad_group_status,
+        ad_account_id as advertiser_id,
         _fivetran_synced,
         campaign_id,
         created_time as created_at,
