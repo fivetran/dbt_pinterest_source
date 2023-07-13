@@ -23,7 +23,7 @@ final as (
     select 
         id as campaign_id,
         name as campaign_name,
-        ad_account_id as advertiser_id,
+        advertiser_id,
         default_ad_group_budget_in_micro_currency,
         is_automated_campaign,
         is_campaign_budget_optimization,

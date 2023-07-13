@@ -21,6 +21,8 @@ models:
         description: Ad group name.
       - name: ad_group_status
         description: The status of the Ad group. One of "ACTIVE", "ARCHIVED", "PAUSED"
+      - name: advertiser_id
+        description: "{{ doc('advertiser_id') }}"
       - name: start_time
         description: Ad group start time. 
       - name: end_time
@@ -49,7 +51,7 @@ models:
         tests:
           - not_null
       - name: created_at
-        description: Campaign creation time. 
+        description: Campaign creation time.
       - name: advertiser_id
         description: "{{ doc('advertiser_id') }}"
       - name: campaign_name

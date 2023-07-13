@@ -26,7 +26,7 @@ final as (
         _fivetran_id,
         _fivetran_synced,
         ad_group_id,
-        ad_account_id as advertiser_id,
+        advertiser_id,
         archived,
         bid,
         campaign_id,

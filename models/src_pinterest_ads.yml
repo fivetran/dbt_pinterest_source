@@ -28,8 +28,8 @@ sources:
             description: "{{ doc('ad_group_id') }}"
           - name: campaign_id
             description: "{{ doc('campaign_id') }}"
-          - name: ad_account_id
-            description: "{{ doc('ad_account_id') }}"
+          - name: advertiser_id
+            description: "{{ doc('advertiser_id') }}"
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
           - name: impression_1
@@ -49,6 +49,8 @@ sources:
         columns:
           - name: id
             description: "{{ doc('pin_promotion_id') }}"
+          - name: ad_account_id
+            description: "{{ doc('ad_account_id') }}"
           - name: ad_group_id
             description: "{{ doc('ad_group_id') }}"
           - name: created_time
@@ -76,7 +78,9 @@ sources:
           - name: id
             description: "{{ doc('campaign_id') }}"
           - name: created_time
-            description: Campaign creation time. 
+            description: Campaign creation time.
+          - name: advertiser_id
+            description: "{{ doc('advertiser_id') }}"
           - name: name
             description: Campaign name.
           - name: status
@@ -100,6 +104,8 @@ sources:
             description: "{{ doc('ad_group_id') }}"
           - name: campaign_id
             description: "{{ doc('campaign_id') }}"
+          - name: ad_account_id
+            description: "{{ doc('ad_account_id') }}"
           - name: created_time
             description: Ad group creation time.
           - name: name
@@ -133,8 +139,8 @@ sources:
             description: Status of the ad group.
           - name: campaign_id
             description: "{{ doc('campaign_id') }}"
-          - name: ad_account_id
-            description: "{{ doc('ad_account_id') }}"
+          - name: advertiser_id
+            description: "{{ doc('advertiser_id') }}"
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
           - name: impression_1
@@ -153,7 +159,7 @@ sources:
         identifier: "{{ var('pinterest_advertiser_history_identifier', 'advertiser_history') }}"
         columns:
           - name: id
-            description: "{{ doc('ad_account_id') }}"
+            description: "{{ doc('advertiser_id') }}"
           - name: name
             description: Name of the advertiser.
           - name: country
@@ -173,8 +179,8 @@ sources:
         columns:
           - name: date
             description: "{{ doc('date_day') }}"
-          - name: ad_account_id
-            description: "{{ doc('ad_account_id') }}"
+          - name: advertiser_id
+            description: "{{ doc('advertiser_id') }}"
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
           - name: impression_1
@@ -200,8 +206,8 @@ sources:
             description: Name of the campaign.
           - name: campaign_status
             description: Status of the campaign.
-          - name: ad_account_id
-            description: "{{ doc('ad_account_id') }}"
+          - name: advertiser_id
+            description: "{{ doc('advertiser_id') }}"
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
           - name: impression_1
@@ -229,8 +235,8 @@ sources:
             description: "{{ doc('_fivetran_synced') }}"
           - name: ad_group_id
             description: "{{ doc('ad_group_id') }}"
-          - name: ad_account_id
-            description: "{{ doc('ad_account_id') }}"
+          - name: advertiser_id
+            description: "{{ doc('advertiser_id') }}"
           - name: archived
             description: Boolean indicating if the keyword is archived.
           - name: bid
@@ -260,8 +266,8 @@ sources:
             description: Status of the ad group.
           - name: campaign_id
             description: "{{ doc('campaign_id') }}"
-          - name: ad_account_id
-            description: "{{ doc('ad_account_id') }}"
+          - name: advertiser_id
+            description: "{{ doc('advertiser_id') }}"
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
           - name: impression_1

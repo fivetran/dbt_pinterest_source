@@ -8,7 +8,7 @@
     {"name": "is_campaign_budget_optimization", "datatype": dbt.type_boolean()},
     {"name": "is_flexible_daily_budgets", "datatype": dbt.type_boolean()},
     {"name": "id", "datatype": dbt.type_string()},
-    {"name": "ad_account_id", "datatype": dbt.type_string()},
+    {"name": "advertiser_id", "datatype": dbt.type_string()},
     {"name": "name", "datatype": dbt.type_string()},
     {"name": "status", "datatype": dbt.type_string()}
 ] %}
