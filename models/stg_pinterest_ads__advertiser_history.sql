@@ -26,6 +26,7 @@ final as (
         country,
         created_time as created_at,
         currency as currency_code,
+        owner_user_id,
         owner_username,
         advertiser_permissions, -- permissions was renamed in macro
         updated_time as updated_at,
