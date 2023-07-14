@@ -169,7 +169,13 @@ sources:
           - name: currency
             description: The currency code which the a
           - name: updated_time
-            description: "{{ doc('updated_at') }}"
+            description: "{{ doc('updated_at') }}"  
+          - name: owner_username
+            description: Advertiser's username.
+          - name: owner_user_id
+            description: Unique identifier of the owner user.
+          - name: permissions
+            description: The permissions associated with this account.
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
 
