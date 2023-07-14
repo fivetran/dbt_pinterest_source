@@ -16,11 +16,11 @@ fields as (
             )
         }}
     from base
-), 
+),
 
 final as (
 
-    select 
+    select
         id as ad_group_id,
         name as ad_group_name,
         status as ad_group_status,
