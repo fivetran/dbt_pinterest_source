@@ -1,3 +1,23 @@
+# dbt_pinterest_source v0.9.0
+# Pinterest Ads v5 Upgrade
+## 🚨 Breaking Changes 🚨:
+[PR #25](https://github.com/fivetran/dbt_pinterest_source/pull/25) introduces the following changes:
+- Following Pinterest Ads deprecating the v4 API on June 30, 2023 in place of v5, the Pinterest Ads Fivetran connector now leverages the Pinterest v5 API. The following fields have been deprecated/introduced:
+
+| **Model** | **Removed**  | **New**   |
+|---|---|---|
+|  [stg_pinterest_ads__advertiser_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__advertiser_history) | `billing_profile_status`, `billing_type`, `merchant_id`, `status`  | `owner_username`, `permissions`  |
+|  [stg_pinterest_ads__campaign_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__campaign_history) | | `default_ad_group_budget_in_micro_currency`, `is_automated_campaign`, `is_campaign_budget_optimization`, `is_flexible_daily_budgets`  |
+|  [stg_pinterest_ads__ad_group_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__ad_group_history) |  | `pacing_delivery_type`, `placement_group`, `summary_status`, `advertiser_id` |
+|  [stg_pinterest_ads__pin_promotion_history](https://fivetran.github.io/dbt_pinterest_source/#!/model/model.pinterest_source.stg_pinterest_ads__pin_promotion_history) |  | `advertiser_id` |
+
+
+## Under the Hood:
+- Following the v5 upgrade, `ad_account_id` is a net new field within `ad_group_history` and `pin_promotion_history` source tables synced via the connector. However, to keep these fields standard across the package, we have renamed them as `advertiser_id` within the respective staging models.
+- Seed data were updated with new/removed fields following the v5 upgrade
+# dbt_pinterest_source v0.8.0
+- This was an accidental release
+
 # dbt_pinterest_source v0.7.2
 ## Features
 - Addition of the `pinterest__using_keywords` (default=`true`) variable that allows users to disable the relevant keyword reports in the downstream Pinterest models if they are not used. ([PR #23](https://github.com/fivetran/dbt_pinterest_source/pull/23))

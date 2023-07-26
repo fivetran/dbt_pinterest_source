@@ -3,6 +3,7 @@
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "ad_group_id", "datatype": dbt.type_string()},
+    {"name": "ad_account_id", "datatype": dbt.type_string()},
     {"name": "android_deep_link", "datatype": dbt.type_string()},
     {"name": "click_tracking_url", "datatype": dbt.type_string()},
     {"name": "created_time", "datatype": dbt.type_timestamp()},

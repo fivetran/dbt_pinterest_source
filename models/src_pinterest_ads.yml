@@ -49,6 +49,8 @@ sources:
         columns:
           - name: id
             description: "{{ doc('pin_promotion_id') }}"
+          - name: ad_account_id
+            description: "{{ doc('ad_account_id') }}"
           - name: ad_group_id
             description: "{{ doc('ad_group_id') }}"
           - name: created_time
@@ -76,11 +78,21 @@ sources:
           - name: id
             description: "{{ doc('campaign_id') }}"
           - name: created_time
-            description: Campaign creation time. 
+            description: Campaign creation time.
+          - name: advertiser_id
+            description: "{{ doc('advertiser_id') }}"
           - name: name
             description: Campaign name.
           - name: status
             description: The status of the Campaign. One of "ACTIVE", "ARCHIVED", "PAUSED"
+          - name: default_ad_group_budget_in_micro_currency
+            description: When transitioning from campaign budget optimization to non-campaign budget optimization, the default_ad_group_budget_in_micro_currency will propagate to each child ad groups daily budget. Unit is micro currency of the associated advertiser account.
+          - name: is_automated_campaign
+            description: Specifies whether the campaign was created in the automated campaign flow
+          - name: is_campaign_budget_optimization
+            description: Determines if a campaign automatically generate ad-group level budgets given a campaign budget to maximize campaign outcome. When transitioning from non-cbo to cbo, all previous child ad group budget will be cleared.
+          - name: is_flexible_daily_budgets
+            description: Determine if a campaign has flexible daily budgets setup.
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
 
@@ -92,6 +104,8 @@ sources:
             description: "{{ doc('ad_group_id') }}"
           - name: campaign_id
             description: "{{ doc('campaign_id') }}"
+          - name: ad_account_id
+            description: "{{ doc('ad_account_id') }}"
           - name: created_time
             description: Ad group creation time.
           - name: name
@@ -102,6 +116,12 @@ sources:
             description: Ad group start time. 
           - name: end_time
             description: Ad group end time. 
+          - name: pacing_delivery_type
+            description: Ad group pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. When using CBO, only the STANDARD pacing delivery type is allowed.
+          - name: placement_group
+            description: The placement group. "ALL", "SEARCH", "BROWSE", or "OTHER"
+          - name: summary_status
+            description: Summary status. "RUNNING", "PAUSED", "NOT_STARTED", "COMPLETED", "ADVERTISER_DISABLED", "ARCHIVED"
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
 
@@ -142,24 +162,20 @@ sources:
             description: "{{ doc('advertiser_id') }}"
           - name: name
             description: Name of the advertiser.
-          - name: status
-            description: Status of the advertiser.
-          - name: billing_profile_status
-            description: Status of the billing profile.
-          - name: billing_type
-            description: The billing type of the advertiser. Will typically be CREDIT_CARD or INVOICE.
           - name: country
             description: The country code where the advertiser is located.
           - name: created_time
             description: "{{ doc('created_at') }}"
           - name: currency
             description: The currency code which the a
-          - name: merchant_id
-            description: Unique ID of the merchant associated with the advertiser.
+          - name: updated_time
+            description: "{{ doc('updated_at') }}"  
+          - name: owner_username
+            description: Advertiser's username.
           - name: owner_user_id
             description: Unique identifier of the owner user.
-          - name: updated_time
-            description: "{{ doc('updated_at') }}"
+          - name: permissions
+            description: The permissions associated with this account.
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
 

@@ -21,10 +21,18 @@ models:
         description: Ad group name.
       - name: ad_group_status
         description: The status of the Ad group. One of "ACTIVE", "ARCHIVED", "PAUSED"
+      - name: advertiser_id
+        description: "{{ doc('advertiser_id') }}"
       - name: start_time
         description: Ad group start time. 
       - name: end_time
         description: Ad group end time. 
+      - name: pacing_delivery_type
+        description: Ad group pacing delivery type. With ACCELERATED, an ad group budget is spent as fast as possible. With STANDARD, an ad group budget is spent smoothly over a day. When using CBO, only the STANDARD pacing delivery type is allowed.
+      - name: placement_group
+        description: The placement group. "ALL", "SEARCH", "BROWSE", or "OTHER"
+      - name: summary_status
+        description: Summary status. "RUNNING", "PAUSED", "NOT_STARTED", "COMPLETED", "ADVERTISER_DISABLED", "ARCHIVED"
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
       - name: is_most_recent_record
@@ -43,13 +51,21 @@ models:
         tests:
           - not_null
       - name: created_at
-        description: Campaign creation time. 
+        description: Campaign creation time.
       - name: advertiser_id
         description: "{{ doc('advertiser_id') }}"
       - name: campaign_name
         description: Campaign name.
       - name: campaign_status
         description:  The status of the Campaign. One of "ACTIVE", "ARCHIVED", "PAUSED"
+      - name: default_ad_group_budget_in_micro_currency
+        description: When transitioning from campaign budget optimization to non-campaign budget optimization, the default_ad_group_budget_in_micro_currency will propagate to each child ad groups daily budget. Unit is micro currency of the associated advertiser account.
+      - name: is_automated_campaign
+        description: Specifies whether the campaign was created in the automated campaign flow
+      - name: is_campaign_budget_optimization
+        description: Determines if a campaign automatically generate ad-group level budgets given a campaign budget to maximize campaign outcome. When transitioning from non-cbo to cbo, all previous child ad group budget will be cleared.
+      - name: is_flexible_daily_budgets
+        description: Determine if a campaign has flexible daily budgets setup.
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
       - name: is_most_recent_record
@@ -67,6 +83,8 @@ models:
         description: Pin promotion ID.
         tests:
           - not_null
+      - name: advertiser_id
+        description: "{{ doc('advertiser_id') }}"
       - name: ad_group_id
         description: Pin promotion ad group ID.
       - name: created_at
@@ -184,24 +202,20 @@ models:
           - not_null
       - name: advertiser_name
         description: Name of the advertiser.
-      - name: advertiser_status
-        description: Status of the advertiser.
-      - name: billing_profile_status
-        description: Status of the billing profile.
-      - name: billing_type
-        description: The billing type of the advertiser. Will typically be CREDIT_CARD or INVOICE.
       - name: country
         description: The country code where the advertiser is located.
       - name: created_at
         description: "{{ doc('created_at') }}"
       - name: currency_code
         description: The currency code which the advertiser is set up using.
-      - name: merchant_id
-        description: Unique ID of the merchant associated with the advertiser.
-      - name: owner_user_id
-        description: Unique identifier of the owner user.
       - name: updated_at
         description: "{{ doc('updated_at') }}"
+      - name: owner_username
+        description: Advertiser's username.
+      - name: owner_user_id
+        description: Unique identifier of the owner user.
+      - name: advertiser_permissions
+        description: The permissions associated with this account.
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
 
