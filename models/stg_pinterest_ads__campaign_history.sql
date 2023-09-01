@@ -1,3 +1,5 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 {{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True)) }}
 
 with base as (
@@ -15,12 +17,19 @@ fields as (
                 staging_columns=get_campaign_history_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='pinterest_union_schemas', 
+            union_database_variable='pinterest_union_databases') 
+        }}
+
     from base
 ), 
 
 final as (
 
-    select 
+    select
+        source_relation, 
         id as campaign_id,
         name as campaign_name,
         advertiser_id,
@@ -31,7 +40,7 @@ final as (
         status as campaign_status,
         _fivetran_synced,
         created_time as created_at,
-        row_number() over (partition by id order by _fivetran_synced desc) = 1 as is_most_recent_record
+        row_number() over (partition by source_relation, id order by _fivetran_synced desc) = 1 as is_most_recent_record
     from fields
 )
 

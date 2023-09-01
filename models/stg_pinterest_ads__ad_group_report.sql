@@ -1,3 +1,5 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 {{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True)) }}
 
 with base as (
@@ -15,12 +17,19 @@ fields as (
                 staging_columns=get_ad_group_report_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='pinterest_union_schemas', 
+            union_database_variable='pinterest_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         {{ dbt.date_trunc('day', 'date') }} as date_day,
         ad_group_id,
         ad_group_name,
