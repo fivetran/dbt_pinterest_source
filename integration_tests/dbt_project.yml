@@ -17,7 +17,7 @@ vars:
   pinterest_advertiser_report_identifier: "pinterest_advertiser_report_data"
 
 models:
-  pinterest_ads_source:
+  pinterest_source:
     +materialized: table
 
 eds:
