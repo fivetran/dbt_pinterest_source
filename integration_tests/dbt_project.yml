@@ -16,7 +16,11 @@ vars:
   pinterest_advertiser_history_identifier: "pinterest_advertiser_history_data"
   pinterest_advertiser_report_identifier: "pinterest_advertiser_report_data"
 
-seeds:
+models:
+  pinterest_ads_source:
+    +materialized: table
+
+eds:
   +quote_columns: "{{ true if target.type in ('redshift','postgres') else false }}"
   pinterest_source_integration_tests:
     +column_types:
