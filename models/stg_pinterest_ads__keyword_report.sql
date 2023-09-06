@@ -17,8 +17,8 @@ fields as (
         }}
     
         {{ fivetran_utils.source_relation(
-            union_schema_variable='pinterest_union_schemas', 
-            union_database_variable='pinterest_union_databases') 
+            union_schema_variable='pinterest_ads_union_schemas', 
+            union_database_variable='pinterest_ads_union_databases') 
         }}
 
     from base

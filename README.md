@@ -61,7 +61,7 @@ vars:
 <details><summary>Expand for configurations</summary>
 
 ### Union multiple connectors
-If you have multiple pinterest ads connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `pinterest_union_schemas` OR `pinterest_union_databases` variables (cannot do both) in your root `dbt_project.yml` file:
+If you have multiple pinterest ads connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `pinterest_ads_union_schemas` OR `pinterest_ads_union_databases` variables (cannot do both) in your root `dbt_project.yml` file:
 
 ```yml
 vars:
