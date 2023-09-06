@@ -1,4 +1,4 @@
-{{ config(enabled=var('ad_reporting__pinterest_ads_ads_enabled', True)) }}
+{{ config(enabled=var('ad_reporting__pinterest_ads_enabled', True)) }}
 
 {{
     fivetran_utils.union_data(
