@@ -15,12 +15,19 @@ fields as (
                 staging_columns=get_keyword_history_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='pinterest_ads_union_schemas', 
+            union_database_variable='pinterest_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
+
     select
+        source_relation,
         id as keyword_id,
         value as keyword_value,
         _fivetran_id,
@@ -32,7 +39,7 @@ final as (
         campaign_id,
         match_type,
         parent_type,
-        row_number() over (partition by id order by _fivetran_synced desc) = 1 as is_most_recent_record
+        row_number() over (partition by source_relation, id order by _fivetran_synced desc) = 1 as is_most_recent_record
     from fields
 )
 

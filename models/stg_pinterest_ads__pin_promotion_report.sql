@@ -15,12 +15,19 @@ fields as (
                 staging_columns=get_pin_promotion_report_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='pinterest_ads_union_schemas', 
+            union_database_variable='pinterest_ads_union_databases') 
+        }}
+
     from base
 ), 
 
 final as (
 
-    select 
+    select
+        source_relation, 
         {{ dbt.date_trunc('day', 'date') }} as date_day,
         pin_promotion_id,
         ad_group_id,

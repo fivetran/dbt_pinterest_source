@@ -15,12 +15,19 @@ fields as (
                 staging_columns=get_advertiser_report_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='pinterest_ads_union_schemas', 
+            union_database_variable='pinterest_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         {{ dbt.date_trunc('day', 'date') }} as date_day,
         advertiser_id,
         coalesce(impression_1,0) + coalesce(impression_2,0) as impressions,

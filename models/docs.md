@@ -33,3 +33,5 @@
 {% docs impression_1 %} The number of paid pin impressions that occurred on the day of the record. {% enddocs %}
 
 {% docs impression_2 %} The number of earned pin impressions that occurred on the day of the record. {% enddocs %}
+
+{% docs source_relation %}The source of the record if the unioning functionality is being used. If not this field will be empty.{% enddocs %}

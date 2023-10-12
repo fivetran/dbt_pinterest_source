@@ -1,3 +1,31 @@
+# dbt_pinterest_source v0.10.0
+[PR #28](https://github.com/fivetran/dbt_pinterest_source/pull/28) includes the following updates:
+
+## Breaking changes
+- Updated the following identifiers for consistency with the source name and compatibility with the union schema feature:
+
+| current  | previous |
+|----------|----------|
+| pinterest_ads_ad_group_history_identifier | pinterest_ad_group_history_identifier |
+| pinterest_ads_campaign_history_identifier | pinterest_campaign_history_identifier |
+| pinterest_ads_pin_promotion_report_identifier | pinterest_pin_promotion_report_identifier |
+| pinterest_ads_keyword_history_identifier | pinterest_keyword_history_identifier |
+| pinterest_ads_keyword_report_identifier | pinterest_keyword_report_identifier |
+| pinterest_ads_ad_group_report_identifier | pinterest_ad_group_report_identifier |
+| pinterest_ads_campaign_report_identifier | pinterest_campaign_report_identifier |
+| pinterest_ads_advertiser_history_identifier | pinterest_advertiser_history_identifier |
+| pinterest_ads_advertiser_report_identifier | pinterest_advertiser_report_identifier |
+
+- If you are using the previous identifier, be sure to update to the current version!
+
+## Feature update 🎉
+- Unioning capability! This adds the ability to union source data from multiple pinterest connectors. Refer to the [Union Multiple Connectors README section](https://github.com/fivetran/dbt_pinterest_source/blob/main/README.md#union-multiple-connectors) for more details.
+
+## Under the hood 🚘
+- Updated tmp models to union source data using the `fivetran_utils.union_data` macro. 
+- To distinguish which source each field comes from, added `source_relation` column in each staging model and applied the `fivetran_utils.source_relation` macro.
+- Updated tests to account for the new `source_relation` column.
+
 # dbt_pinterest_source v0.9.0
 # Pinterest Ads v5 Upgrade
 ## 🚨 Breaking Changes 🚨:

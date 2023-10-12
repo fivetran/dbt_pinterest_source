@@ -15,12 +15,19 @@ fields as (
                 staging_columns=get_ad_group_history_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='pinterest_ads_union_schemas', 
+            union_database_variable='pinterest_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
 
     select
+        source_relation,
         id as ad_group_id,
         name as ad_group_name,
         status as ad_group_status,
@@ -33,7 +40,7 @@ final as (
         placement_group,
         start_time,
         summary_status,
-        row_number() over (partition by id order by _fivetran_synced desc) = 1 as is_most_recent_record
+        row_number() over (partition by source_relation, id order by _fivetran_synced desc) = 1 as is_most_recent_record
     from fields
 )
 
