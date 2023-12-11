@@ -1,6 +1,6 @@
 # dbt_pinterest_source v0.10.1
 
-[PR #]() includes the following updates:
+[PR #31](https://github.com/fivetran/dbt_pinterest_source/pull/31) includes the following updates:
 ## Bug Fixes
 - This package now leverages the new `pinterest_ads_extract_url_parameter()` for use in parsing out url parameters. This was added to create special logic for Databricks instances not supported by `dbt_utils.get_url_parameter()`.
   - This macro will be replaced with the `fivetran_utils.extract_url_parameter()` in the next breaking change.
