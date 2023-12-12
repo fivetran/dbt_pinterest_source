@@ -1,6 +1,6 @@
 {% macro pinterest_ads_extract_url_parameter(field, url_parameter) -%}
 
-{{ adapter.dispatch('pinterest_ads_extract_url_parameter', 'pinterest_source') (field, url_parameter) }}
+{{ return(adapter.dispatch('pinterest_ads_extract_url_parameter', 'pinterest_source') (field, url_parameter)) }}
 
 {% endmacro %}
 
