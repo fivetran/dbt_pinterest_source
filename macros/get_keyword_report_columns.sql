@@ -14,7 +14,10 @@
     {"name": "impression_2", "datatype": dbt.type_int()},
     {"name": "keyword_id", "datatype": dbt.type_string()},
     {"name": "pin_promotion_id", "datatype": dbt.type_string()},
-    {"name": "spend_in_micro_dollar", "datatype": dbt.type_int()}
+    {"name": "spend_in_micro_dollar", "datatype": dbt.type_int()},
+    {"name": "total_conversions", "datatype": dbt.type_int()},
+    {"name": "total_conversions_quantity", "datatype": dbt.type_int()},
+    {"name": "total_conversions_value_in_micro_dollar", "datatype": dbt.type_int()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('pinterest__keyword_report_passthrough_metrics')) }}
