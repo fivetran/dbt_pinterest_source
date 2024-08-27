@@ -36,9 +36,12 @@ final as (
         advertiser_id,
         coalesce(impression_1,0) + coalesce(impression_2,0) as impressions,
         coalesce(clickthrough_1,0) + coalesce(clickthrough_2,0) as clicks,
-        spend_in_micro_dollar / 1000000.0 as spend
+        spend_in_micro_dollar / 1000000.0 as spend,
+        total_conversions,
+        total_conversions_quantity,
+        total_conversions_value_in_micro_dollar
 
-        {{ pinterest_ads_fill_pass_through_columns(pass_through_fields=var('pinterest__ad_group_report_passthrough_metrics'), except=['total_conversions']) }}
+        {{ pinterest_ads_fill_pass_through_columns(pass_through_fields=var('pinterest__ad_group_report_passthrough_metrics'), except=['total_conversions','total_conversions_quantity','total_conversions_value_in_micro_dollar']) }}
 
     from fields
 )
