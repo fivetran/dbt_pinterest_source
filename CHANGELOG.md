@@ -1,3 +1,19 @@
+# dbt_pinterest_source v0.11.0
+
+[PR #33](https://github.com/fivetran/dbt_pinterest_source/pull/33) includes the following updates:
+
+## Feature Updates: Conversion Fields Added
+- We have added the following source fields to each `stg_pinterest_ads__<entity>_report` model:
+  - `total_conversions`
+  - `total_conversions_quantity`
+  - `total_conversions_value_in_micro_dollar`
+- In the event that you were already passing the above fields in via our [passthrough columns](https://github.com/fivetran/dbt_pinterest/blob/main/README.md#passing-through-additional-metrics), the package will dynamically avoid "duplicate column" errors.
+
+> The above new field additions are 🚨 **breaking changes** 🚨 for users who were not already bringing in conversion fields via passthrough columns.
+
+## Under the Hood
+- Created `pinterest_ads_fill_pass_through_columns` and `pinterest_ads_add_pass_through_columns` macros to ensure that the new conversion fields are backwards compatible with users who have already included them via passthrough fields.
+
 # dbt_pinterest_source v0.10.1
 
 [PR #31](https://github.com/fivetran/dbt_pinterest_source/pull/31) includes the following updates:
