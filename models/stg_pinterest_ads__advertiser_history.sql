@@ -28,7 +28,7 @@ final as (
 
     select
         source_relation, 
-        id as advertiser_id,
+        cast(id as {{ dbt.type_string() }}) as advertiser_id,
         name as advertiser_name,
         country,
         created_time as created_at,

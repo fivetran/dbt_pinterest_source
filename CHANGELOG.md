@@ -13,6 +13,7 @@
 
 ## Under the Hood
 - Created `pinterest_ads_fill_pass_through_columns` and `pinterest_ads_add_pass_through_columns` macros to ensure that the new conversion fields are backwards compatible with users who have already included them via passthrough fields.
+- Added explicit string cast to `advertiser_id` in `stg_pinterest_ads__advertiser_history` and `stg_pinterest_ads__advertiser_report` to join the models downstream on the primary key.
 
 # dbt_pinterest_source v0.10.1
 
