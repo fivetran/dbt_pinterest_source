@@ -9,7 +9,7 @@
     - `stg_pinterest_ads__pin_promotion_history`
 
 ## Contributors
-- [@](https://github.com/jessicakmarkiewicz) ([PR #](https://github.com/fivetran/dbt_zendesk/issues/))
+- [@JessicaKMarkiewicz](https://github.com/JessicaKMarkiewicz) ([PR #35](https://github.com/fivetran/dbt_pinterest_source/pull/35))
 
 # dbt_pinterest_source v0.10.1
 
