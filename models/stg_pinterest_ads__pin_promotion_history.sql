@@ -47,7 +47,12 @@ final as (
         status as pin_status,
         creative_type,
         _fivetran_synced,
-        row_number() over (partition by source_relation, id order by _fivetran_synced desc) = 1 as is_most_recent_record
+        {{ pinterest_source.result_if_table_exists(
+            table_ref=ref('stg_pinterest_ads__pin_promotion_history_tmp'), 
+            result_statement='row_number() over (partition by id' ~ (', source_relation' if var('pinterest_ads_union_schemas', []) or var('pinterest_ads_union_databases', []) | length > 1) ~ ' order by _fivetran_synced desc)',
+            if_empty=1
+        )}} = 1 as is_most_recent_record
+
     from fields
 )
 
