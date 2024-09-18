@@ -1,3 +1,16 @@
+# dbt_pinterest_source v0.10.2
+
+## Bug Fixes
+- Updated the `is_most_recent_record` window function in the following models to exclude the `source_relation` field from the partition statement when `pinterest_ads_union_schemas` or `pinterest_ads_union_databases` variables are empty. Also, modified it to skip the window function if the upstream table is empty, using the new `window_function_if_table_exists()` and `is_table_empty()` macros. This change addresses Redshift's issue with partitioning by constant expressions.
+    - `stg_pinterest_ads__ad_group_history`
+    - `stg_pinterest_ads__advertiser_history`
+    - `stg_pinterest_ads__campaign_history`
+    - `stg_pinterest_ads__keyword_history`
+    - `stg_pinterest_ads__pin_promotion_history`
+
+## Contributors
+- [@JessicaKMarkiewicz](https://github.com/JessicaKMarkiewicz) ([PR #35](https://github.com/fivetran/dbt_pinterest_source/pull/35))
+
 # dbt_pinterest_source v0.10.1
 
 [PR #31](https://github.com/fivetran/dbt_pinterest_source/pull/31) includes the following updates:
