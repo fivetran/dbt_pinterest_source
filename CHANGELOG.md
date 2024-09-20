@@ -26,6 +26,7 @@
   - `stg_pinterest_ads__pin_promotion_history`
   - `stg_pinterest_ads__pin_promotion_report`
 - Updated seed data to represent an e-commerce customer scenario.
+- Coalesces `spend` with 0 to ensure proper downstream aggregations.
 
 ## Documentation
 - Updates the [DECISIONLOG](DECISIONLOG.md) to clarify why there exist differences among aggregations across different grains.
