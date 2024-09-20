@@ -41,9 +41,9 @@ final as (
         spend_in_micro_dollar / 1000000.0 as spend,
         total_conversions,
         total_conversions_quantity,
-        total_conversions_value_in_micro_dollar
+        total_conversions_value_in_micro_dollar / 1000000.0 as total_conversions_value
 
-        {{ pinterest_ads_fill_pass_through_columns(pass_through_fields=var('pinterest__keyword_report_passthrough_metrics'), except=['total_conversions','total_conversions_quantity','total_conversions_value_in_micro_dollar']) }}
+        {{ pinterest_ads_fill_pass_through_columns(pass_through_fields=var('pinterest__keyword_report_passthrough_metrics'), except=['total_conversions','total_conversions_quantity','total_conversions_value']) }}
 
     from fields
 )

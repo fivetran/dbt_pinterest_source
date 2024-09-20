@@ -47,3 +47,7 @@ Refers to the total count of items or units involved in the conversions. This me
 {% docs total_conversions_value_in_micro_dollar %}
 Total conversions order value. The total value of the conversions, calculated by summing up the revenue or order values attributed to conversions. The value is expressed in microdollars, where one microdollar is one-millionth of a US dollar. Example: If the total order value from conversions is $50,000, this would be represented as 50,000,000,000 microdollars.
 {% enddocs %}
+
+{% docs total_conversions_value %}
+Total conversions order value. The total value of the conversions, calculated by summing up the revenue or order values attributed to conversions. Converted from the source `total_conversions_value_in_micro_dollar` field.
+{% enddocs %}

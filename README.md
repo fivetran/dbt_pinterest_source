@@ -27,6 +27,7 @@ To use this dbt package, you must have the following:
 
 #### Databricks Dispatch Configuration
 If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
+
 ```yml
 dispatch:
   - macro_namespace: dbt_utils
@@ -36,11 +37,13 @@ dispatch:
 ### Step 2: Install the package (skip if also using the `pinterest` transformation package)
 If you  are **not** using the [Pinterest transformation package](https://github.com/fivetran/dbt_pinterest), include the following pinterest_source package version in your `packages.yml` file.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
-```yaml
+
+```yml
 packages:
   - package: fivetran/pinterest_source
     version: [">=0.11.0", "<0.12.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
+
 ### Step 3: Define database and schema variables
 By default, this package runs using your destination and the `pinterest` schema. If this is not where your Pinterest Ads data is (for example, if your pinterest schema is named `pinterest_fivetran`), add the following configuration to your root `dbt_project.yml` file:
 
@@ -49,8 +52,10 @@ vars:
     pinterest_database: your_destination_name
     pinterest_schema: your_schema_name 
 ```
+
 #### Step 4: Disabling Keyword Models
 This package takes into consideration that not every Pinterest account tracks `keyword` performance, and allows you to disable the corresponding functionality by adding the following variable configuration:
+
 ```yml
 # dbt_project.yml
 vars:
@@ -66,12 +71,13 @@ vars:
     pinterest_ads_union_schemas: ['pinterest_usa','pinterest_canada'] # use this if the data is in different schemas/datasets of the same database/project
     pinterest_ads_union_databases: ['pinterest_usa','pinterest_canada'] # use this if the data is in different databases/projects but uses the same schema name
 ```
+
 > NOTE: The native `source.yml` connection set up in the package will not function when the union schema/database feature is utilized. Although the data will be correctly combined, you will not observe the sources linked to the package models in the Directed Acyclic Graph (DAG). This happens because the package includes only one defined `source.yml`.
 
 To connect your multiple schema/database sources to the package models, follow the steps outlined in the [Union Data Defined Sources Configuration](https://github.com/fivetran/dbt_fivetran_utils/tree/releases/v0.4.latest#union_data-source) section of the Fivetran Utils documentation for the union_data macro. This will ensure a proper configuration and correct visualization of connections in the DAG.
 
 #### Passing Through Additional Metrics
-By default, this package will select `clicks`, `impressions`, `cost`, `total_conversions`, `total_conversions_quantity`, and `total_conversions_value_in_micro_dollar` from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the below configurations to your `dbt_project.yml` file. These variables allow for the pass-through fields to be aliased (`alias`) if desired, but not required. Use the below format for declaring the respective pass-through variables:
+By default, this package will select `clicks`, `impressions`, `spend` (converted from `spend_in_micro_dollar`), `total_conversions`, `total_conversions_quantity`, and `total_conversions_value` (converted from `total_conversions_value_in_micro_dollar`) from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the below configurations to your `dbt_project.yml` file. These variables allow for the pass-through fields to be aliased (`alias`) if desired, but not required. Use the below format for declaring the respective pass-through variables:
 
 >**Note** Please ensure you exercised due diligence when adding metrics to these models. The metrics added by default (clicks, impressions, spend, total conversions, total conversions quantity, and total conversions value) have been vetted by the Fivetran team maintaining this package for accuracy. There are metrics included within the source reports, for example metric averages, which may be inaccurately represented at the grain for reports created in this package. You will want to ensure whichever metrics you pass through are indeed appropriate to aggregate at the respective reporting levels provided in this package.
 
@@ -91,6 +97,7 @@ vars:
       - name: "other_id"
         alias: "another_id"
 ```
+
 #### Change the build schema
 By default, this package builds the Pinterest Ads staging models within a schema titled (`<target_schema>` + `_pinterest_source`) in your destination. If this is not where you would like your pinterest staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
@@ -99,11 +106,11 @@ models:
     pinterest_source:
       +schema: my_new_schema_name # leave blank for just the target_schema
 ```
-    
+
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
 > IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_pinterest_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
-    
+
 ```yml
 vars:
     pinterest_<default_source_table_name>_identifier: your_table_name 
@@ -111,14 +118,16 @@ vars:
 
 ### (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for more details</summary>
+<br>
 
 Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core™ setup guides](https://fivetran.com/docs/transformations/dbt#setupguide).
-    
+
 </details>
 
 ## Does this package have dependencies?
 This dbt package is dependent on the following dbt packages. These dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
 > IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
+
 ```yml
 packages:
     - package: fivetran/fivetran_utils
@@ -130,7 +139,7 @@ packages:
     - package: dbt-labs/spark_utils
       version: [">=0.3.0", "<0.4.0"]
 ```
-          
+
 ## How is this package maintained and can I contribute?
 ### Package Maintenance
 The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend that you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/pinterest_source/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_pinterest_source/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
