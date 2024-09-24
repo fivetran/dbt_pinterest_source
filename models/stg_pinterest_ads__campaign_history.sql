@@ -28,9 +28,9 @@ final as (
 
     select
         source_relation, 
-        id as campaign_id,
+        cast(id as {{ dbt.type_string() }}) as campaign_id,
         name as campaign_name,
-        advertiser_id,
+        cast(advertiser_id as {{ dbt.type_string() }}) as advertiser_id,
         default_ad_group_budget_in_micro_currency,
         is_automated_campaign,
         is_campaign_budget_optimization,

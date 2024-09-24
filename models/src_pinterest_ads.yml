@@ -42,6 +42,13 @@ sources:
             description: "{{ doc('clickthrough_2') }}"
           - name: spend_in_micro_dollar
             description: "{{ doc('spend_in_micro_dollar') }}"
+          - name: total_conversions
+            description: "{{ doc('total_conversions') }}"
+          - name: total_conversions_quantity
+            description: "{{ doc('total_conversions_quantity') }}"
+          - name: total_conversions_value_in_micro_dollar
+            description: "{{ doc('total_conversions_value_in_micro_dollar') }}"
+            
       
       - name: pin_promotion_history
         description: Each record represents a version of a Pinterest Pin promotion.
@@ -153,6 +160,13 @@ sources:
             description: "{{ doc('clickthrough_2') }}"
           - name: spend_in_micro_dollar
             description: "{{ doc('spend_in_micro_dollar') }}"
+          - name: total_conversions
+            description: "{{ doc('total_conversions') }}"
+          - name: total_conversions_quantity
+            description: "{{ doc('total_conversions_quantity') }}"
+          - name: total_conversions_value_in_micro_dollar
+            description: "{{ doc('total_conversions_value_in_micro_dollar') }}"
+
 
       - name: advertiser_history
         description: Each record represents a version of a Pinterest advertiser.
@@ -199,6 +213,13 @@ sources:
             description: "{{ doc('clickthrough_2') }}"
           - name: spend_in_micro_dollar
             description: "{{ doc('spend_in_micro_dollar') }}"
+          - name: total_conversions
+            description: "{{ doc('total_conversions') }}"
+          - name: total_conversions_quantity
+            description: "{{ doc('total_conversions_quantity') }}"
+          - name: total_conversions_value_in_micro_dollar
+            description: "{{ doc('total_conversions_value_in_micro_dollar') }}"
+
 
       - name: campaign_report
         description: Each record represents the daily performance of a Pinterest campaign.
@@ -226,6 +247,13 @@ sources:
             description: "{{ doc('clickthrough_2') }}"
           - name: spend_in_micro_dollar
             description: "{{ doc('spend_in_micro_dollar') }}"
+          - name: total_conversions
+            description: "{{ doc('total_conversions') }}"
+          - name: total_conversions_quantity
+            description: "{{ doc('total_conversions_quantity') }}"
+          - name: total_conversions_value_in_micro_dollar
+            description: "{{ doc('total_conversions_value_in_micro_dollar') }}"
+
 
       - name: keyword_history
         description: Each record represents a version of a Pinterest keyword.
@@ -286,3 +314,10 @@ sources:
             description: "{{ doc('clickthrough_2') }}"
           - name: spend_in_micro_dollar
             description: "{{ doc('spend_in_micro_dollar') }}"
+          - name: total_conversions
+            description: "{{ doc('total_conversions') }}"
+          - name: total_conversions_quantity
+            description: "{{ doc('total_conversions_quantity') }}"
+          - name: total_conversions_value_in_micro_dollar
+            description: "{{ doc('total_conversions_value_in_micro_dollar') }}"
+
