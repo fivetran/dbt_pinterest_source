@@ -53,7 +53,7 @@ vars:
     pinterest_schema: your_schema_name 
 ```
 
-#### Step 4: Disabling Keyword Models
+### Step 4: Disabling Keyword Models
 This package takes into consideration that not every Pinterest account tracks `keyword` performance, and allows you to disable the corresponding functionality by adding the following variable configuration:
 
 ```yml
