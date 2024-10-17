@@ -2,7 +2,7 @@
 
 [PR #33](https://github.com/fivetran/dbt_pinterest_source/pull/33) includes the following updates:
 
-## Feature Updates: Conversion Fields Added
+## Feature Updates: Conversion Metrics
 - We have added the following source fields to each `stg_pinterest_ads__<entity>_report` model:
   - `total_conversions`
   - `total_conversions_quantity`
