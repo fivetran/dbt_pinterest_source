@@ -1,3 +1,38 @@
+# dbt_pinterest_source v0.11.0
+
+[PR #33](https://github.com/fivetran/dbt_pinterest_source/pull/33) includes the following **BREAKING CHANGE** updates:
+
+## Feature Updates: Native Conversion Support
+- We have added the following source fields to each `stg_pinterest_ads__<entity>_report` model:
+  - `total_conversions`: The sum of all website conversion events.
+  - `total_conversions_quantity`: The total count of items or units involved in conversions.
+  - `total_conversions_value` (converted from `total_conversions_value_in_micro_dollar`) Total order value associated with conversions.
+- In the event that you were already passing the above fields in via our [passthrough columns](https://github.com/fivetran/dbt_pinterest/blob/main/README.md#passing-through-additional-metrics), the package will dynamically avoid "duplicate column" errors.
+
+> The above new field additions are **breaking changes** for users who were not already bringing in conversion fields via passthrough columns.
+
+## Under the Hood
+- Created `pinterest_ads_fill_pass_through_columns` and `pinterest_ads_add_pass_through_columns` macros to ensure that the new conversion fields are backwards compatible with users who have already included them via passthrough fields.
+- Explicitly casts `<entity>_id` fields as strings in:
+  - `stg_pinterest_ads__ad_group_history`
+  - `stg_pinterest_ads__ad_group_report`
+  - `stg_pinterest_ads__advertiser_history`
+  - `stg_pinterest_ads__advertiser_report`
+  - `stg_pinterest_ads__campaign_history`
+  - `stg_pinterest_ads__campaign_report`
+  - `stg_pinterest_ads__keyword_history`
+  - `stg_pinterest_ads__keyword_report`
+  - `stg_pinterest_ads__pin_promotion_history`
+  - `stg_pinterest_ads__pin_promotion_report`
+- Updated seed data to represent an e-commerce customer scenario.
+- Coalesces `spend` with 0 to ensure proper downstream aggregations.
+
+## Documentation
+- Updates the [DECISIONLOG](DECISIONLOG.md) to clarify why there exist differences among aggregations across different grains.
+
+## Contributors
+- [Seer Interactive](https://www.seerinteractive.com/?utm_campaign=Fivetran%20%7C%20Models&utm_source=Fivetran&utm_medium=Fivetran%20Documentation)
+
 # dbt_pinterest_source v0.10.1
 
 [PR #31](https://github.com/fivetran/dbt_pinterest_source/pull/31) includes the following updates:

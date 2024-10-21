@@ -29,9 +29,9 @@ final as (
 
     select
         source_relation,
-        id as pin_promotion_id,
-        ad_account_id as advertiser_id,
-        ad_group_id,
+        cast(id as {{ dbt.type_string() }}) as pin_promotion_id,
+        cast(ad_account_id as {{ dbt.type_string() }}) as advertiser_id,
+        cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         created_time as created_at,
         destination_url,
         {{ dbt.split_part('destination_url', "'?'", 1) }} as base_url,
@@ -43,7 +43,7 @@ final as (
         {{ pinterest_source.pinterest_ads_extract_url_parameter('destination_url', 'utm_content') }} as utm_content,
         {{ pinterest_source.pinterest_ads_extract_url_parameter('destination_url', 'utm_term') }} as utm_term,
         name as pin_name,
-        pin_id,
+        cast(pin_id as {{ dbt.type_string() }}) as pin_id,
         status as pin_status,
         creative_type,
         _fivetran_synced,
