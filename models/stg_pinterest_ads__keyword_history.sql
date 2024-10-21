@@ -28,15 +28,15 @@ final as (
 
     select
         source_relation,
-        id as keyword_id,
+        cast(id as {{ dbt.type_string() }}) as keyword_id,
         value as keyword_value,
         _fivetran_id,
         _fivetran_synced,
-        ad_group_id,
-        advertiser_id,
+        cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
+        cast(advertiser_id as {{ dbt.type_string() }}) as advertiser_id,
         archived,
         bid,
-        campaign_id,
+        cast(campaign_id as {{ dbt.type_string() }}) as campaign_id,
         match_type,
         parent_type,
         row_number() over (partition by source_relation, id order by _fivetran_synced desc) = 1 as is_most_recent_record

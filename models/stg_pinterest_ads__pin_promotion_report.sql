@@ -29,15 +29,18 @@ final as (
     select
         source_relation, 
         {{ dbt.date_trunc('day', 'date') }} as date_day,
-        pin_promotion_id,
-        ad_group_id,
-        campaign_id,
-        advertiser_id,
+        cast(pin_promotion_id as {{ dbt.type_string() }}) as pin_promotion_id,
+        cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
+        cast(campaign_id as {{ dbt.type_string() }}) as campaign_id,
+        cast(advertiser_id as {{ dbt.type_string() }}) as advertiser_id,
         coalesce(impression_1,0) + coalesce(impression_2,0) as impressions,
         coalesce(clickthrough_1,0) + coalesce(clickthrough_2,0) as clicks,
-        spend_in_micro_dollar / 1000000.0 as spend
+        coalesce(spend_in_micro_dollar, 0) / 1000000.0 as spend,
+        coalesce(total_conversions, 0) as total_conversions,
+        coalesce(total_conversions_quantity, 0) as total_conversions_quantity,
+        coalesce(total_conversions_value_in_micro_dollar, 0) / 1000000.0 as total_conversions_value
 
-        {{ fivetran_utils.fill_pass_through_columns('pinterest__pin_promotion_report_passthrough_metrics') }}
+        {{ pinterest_ads_fill_pass_through_columns(pass_through_fields=var('pinterest__pin_promotion_report_passthrough_metrics'), except=['total_conversions','total_conversions_quantity','total_conversions_value']) }}
 
     from fields
 )

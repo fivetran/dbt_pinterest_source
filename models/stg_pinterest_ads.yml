@@ -166,6 +166,13 @@ models:
         description: "{{ doc('clicks') }}"
       - name: spend
         description: "{{ doc('spend') }}"
+      - name: total_conversions
+        description: "{{ doc('total_conversions') }}"
+      - name: total_conversions_quantity
+        description: "{{ doc('total_conversions_quantity') }}"
+      - name: total_conversions_value
+        description: "{{ doc('total_conversions_value') }}"
+
 
   - name: stg_pinterest_ads__ad_group_report
     description: Each record represents the daily performance of a Pinterest Ad Groups by campaign and advertiser.
@@ -202,6 +209,12 @@ models:
         description: "{{ doc('clicks') }}"
       - name: spend
         description: "{{ doc('spend') }}"
+      - name: total_conversions
+        description: "{{ doc('total_conversions') }}"
+      - name: total_conversions_quantity
+        description: "{{ doc('total_conversions_quantity') }}"
+      - name: total_conversions_value
+        description: "{{ doc('total_conversions_value') }}"
 
   - name: stg_pinterest_ads__advertiser_history
     description: Each record represents a version of an advertiser.
@@ -262,6 +275,12 @@ models:
         description: "{{ doc('clicks') }}"
       - name: spend
         description: "{{ doc('spend') }}"
+      - name: total_conversions
+        description: "{{ doc('total_conversions') }}"
+      - name: total_conversions_quantity
+        description: "{{ doc('total_conversions_quantity') }}"
+      - name: total_conversions_value
+        description: "{{ doc('total_conversions_value') }}"
 
   - name: stg_pinterest_ads__campaign_report
     description: Each record represents the daily performance of Campaigns by advertiser.
@@ -295,6 +314,12 @@ models:
         description: "{{ doc('clicks') }}"
       - name: spend
         description: "{{ doc('spend') }}"
+      - name: total_conversions
+        description: "{{ doc('total_conversions') }}"
+      - name: total_conversions_quantity
+        description: "{{ doc('total_conversions_quantity') }}"
+      - name: total_conversions_value
+        description: "{{ doc('total_conversions_value') }}"
 
   - name: stg_pinterest_ads__keyword_history
     description: Each record represents the daily performance of a Keyword.
@@ -376,3 +401,9 @@ models:
         description: "{{ doc('clicks') }}"
       - name: spend
         description: "{{ doc('spend') }}"
+      - name: total_conversions
+        description: "{{ doc('total_conversions') }}"
+      - name: total_conversions_quantity
+        description: "{{ doc('total_conversions_quantity') }}"
+      - name: total_conversions_value
+        description: "{{ doc('total_conversions_value') }}"

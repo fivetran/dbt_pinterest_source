@@ -28,12 +28,12 @@ final as (
 
     select
         source_relation,
-        id as ad_group_id,
+        cast(id as {{ dbt.type_string() }}) as ad_group_id,
         name as ad_group_name,
         status as ad_group_status,
         ad_account_id as advertiser_id,
         _fivetran_synced,
-        campaign_id,
+        cast(campaign_id as {{ dbt.type_string() }}) as campaign_id,
         created_time as created_at,
         end_time,
         pacing_delivery_type,
