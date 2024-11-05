@@ -22,6 +22,11 @@ fields as (
         }}
 
     from base
+    {{ pinterest_source.result_if_table_exists(
+        table_ref=ref('stg_pinterest_ads__advertiser_history_tmp'),
+        result_statement="",
+        if_empty="limit 0")
+    }}
 ),
 
 final as (
@@ -37,11 +42,7 @@ final as (
         owner_username,
         advertiser_permissions, -- permissions was renamed in macro
         updated_time as updated_at,
-        {{ pinterest_source.result_if_table_exists(
-            table_ref=ref('stg_pinterest_ads__advertiser_history_tmp'), 
-            result_statement='row_number() over (partition by id' ~ (', source_relation' if var('pinterest_ads_union_schemas', []) or var('pinterest_ads_union_databases', []) | length > 1) ~ ' order by updated_time desc)',
-            if_empty=1
-        )}} = 1 as is_most_recent_record
+        row_number() over (partition by source_relation, id order by updated_time desc) = 1 as is_most_recent_record
 
     from fields
 )
