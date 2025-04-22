@@ -100,6 +100,16 @@ sources:
             description: Determines if a campaign automatically generate ad-group level budgets given a campaign budget to maximize campaign outcome. When transitioning from non-cbo to cbo, all previous child ad group budget will be cleared.
           - name: is_flexible_daily_budgets
             description: Determine if a campaign has flexible daily budgets setup.
+          - name: start_time
+            description: Timestamp when the campaign became active or was scheduled to start.
+          - name: end_time
+            description: Timestamp when the campaign ended or is scheduled to end.
+          - name: budget_spend_cap
+            description: Maximum amount allowed to be spent over a specified budget period for the campaign.
+          - name: lifetime_spend_cap
+            description: Total maximum spend allowed across the entire lifespan of the campaign.
+          - name: objective_type
+            description: The primary goal of the campaign (e.g., brand awareness, conversions, video views).
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
 

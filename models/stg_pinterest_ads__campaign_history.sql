@@ -38,6 +38,11 @@ final as (
         status as campaign_status,
         _fivetran_synced,
         created_time as created_at,
+        start_time,
+        end_time,
+        budget_spend_cap,
+        lifetime_spend_cap,
+        objective_type,
         row_number() over (partition by source_relation, id order by _fivetran_synced desc) = 1 as is_most_recent_record
     from fields
 )
