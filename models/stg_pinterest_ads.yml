@@ -464,7 +464,7 @@ models:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
       - name: country_id
-        description: "The ID of the targeted country."
+        description: "{{ doc('country_id') }}"
       - name: country_name
         description: "The name of the targeted country."
       - name: _fivetran_synced
@@ -484,8 +484,8 @@ models:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
       - name: country_id
-        description: "The ID of the targeted country."
+        description: "{{ doc('country_id') }}"
       - name: region_id
-        description: "The ID of the targeted region."
+        description: "{{ doc('region_id') }}"
       - name: region_name
-        description: "The ID of the targeted region."
+        description: "The name of the targeted region."

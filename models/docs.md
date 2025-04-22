@@ -6,6 +6,10 @@
 
 {% docs ad_group_id %} The ID of the related Ad group. {% enddocs %}
 
+{% docs country_id %} The ID of the targeted country. {% enddocs %}
+
+{% docs region_id %} The ID of the targeted region. {% enddocs %}
+
 {% docs pin_promotion_id %} The ID of the related Pin promotion. {% enddocs %}
 
 {% docs campaign_id %} The ID of the related Campaign. {% enddocs %}
