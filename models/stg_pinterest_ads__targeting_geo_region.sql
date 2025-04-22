@@ -27,9 +27,6 @@ with base as (
         cast(country_id as {{ dbt.type_string() }}) as country_id,
         cast(region_id as {{ dbt.type_string() }}) as region_id,
         region_name
-
-        {{ pinterest_ads_fill_pass_through_columns(pass_through_fields=var('pinterest__targeting_geo_region_passthrough_metrics'), except=['total_conversions','total_conversions_quantity','total_conversions_value']) }}
-
     from fields
 )
 

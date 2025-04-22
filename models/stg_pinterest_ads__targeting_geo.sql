@@ -26,9 +26,6 @@ with base as (
         cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,
         cast(country_id as {{ dbt.type_string() }}) as country_id,
         country_name
-
-        {{ pinterest_ads_fill_pass_through_columns(pass_through_fields=var('pinterest__targeting_geo_passthrough_metrics'), except=['total_conversions','total_conversions_quantity','total_conversions_value']) }}
-
     from fields
 )
 

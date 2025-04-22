@@ -21,6 +21,7 @@ vars:
   pinterest__advertiser_report_passthrough_metrics: []
   pinterest__campaign_report_passthrough_metrics: []
   pinterest__keyword_report_passthrough_metrics: []
+  pinterest__pin_promotion_targeting_report_passthrough_metrics: []
 models:
   pinterest_source:
     +schema: pinterest_source
