@@ -1,4 +1,6 @@
-# dbt_pinterest_source version.version
+# dbt_pinterest_source v0.12.0
+
+[PR #39](https://github.com/fivetran/dbt_pinterest_source/pull/39) includes the following updates:
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#38](https://github.com/fivetran/dbt_pinterest_source/pull/38))
