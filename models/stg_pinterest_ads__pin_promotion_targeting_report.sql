@@ -38,7 +38,7 @@ with base as (
         coalesce(total_conversions_quantity, 0) as total_conversions_quantity,
         coalesce(total_conversions_value_in_micro_dollar, 0) / 1000000.0 as total_conversions_value
 
-        {{ pinterest_ads_fill_pass_through_columns(pass_through_fields=var('pinterest__pin_promotion_targeting_report_passthrough_metrics'), except=['total_conversions','total_conversions_quantity','total_conversions_value']) }}
+        {{ pinterest_ads_fill_pass_through_columns(pass_through_fields=var('pinterest__pin_promotion_targeting_report_passthrough_metrics')) }}
 
     from fields
 )
