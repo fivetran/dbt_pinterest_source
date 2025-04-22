@@ -24,7 +24,7 @@ with base as (
     select
         source_relation,
         cast(_fivetran_synced as {{ dbt.type_timestamp() }}) as _fivetran_synced,
-        cast(date as {{ dbt.type_timestamp() }}) as date,
+        cast(date as {{ dbt.type_timestamp() }}) as date_day,
         cast(targeting_type as {{ dbt.type_string() }}) as targeting_type,
         cast(targeting_value as {{ dbt.type_string() }}) as targeting_value,
         cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,

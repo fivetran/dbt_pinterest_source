@@ -426,7 +426,7 @@ models:
         description: "{{ doc('source_relation') }}"
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
-      - name: date
+      - name: date_day
         description: "{{ doc('date_day') }}"
       - name: targeting_type
         description: "Reporting targeting type for ads. Possible values: 'KEYWORD', 'APPTYPE', 'GENDER', 'LOCATION', 'PLACEMENT', 'COUNTRY', 'TARGETED_INTEREST', 'PINNER_INTEREST', 'AUDIENCE_INCLUDE', 'GEO', 'AGE_BUCKET', 'REGION', 'QUIZ_RESULT', 'AGE_BUCKET_AND_GENDER'"
