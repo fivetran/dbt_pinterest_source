@@ -1,6 +1,35 @@
 # dbt_pinterest_source v0.12.0
-
 [PR #39](https://github.com/fivetran/dbt_pinterest_source/pull/39) includes the following updates:
+
+## Schema Updates
+
+### Models
+6 new models • 0 possible breaking changes
+
+| Model/Column                                                 | Change type | Old name | New name | Notes                                           |
+|--------------------------------------------------------------|-------------|----------|----------|-------------------------------------------------|
+| `stg_pinterest_ads__pin_promotion_targeting_report`            | New Model   |          |          | Uses `pin_promotion_targeting_report` source table |
+| `stg_pinterest_ads__targeting_geo_region`                      | New Model   |          |          | Uses `targeting_geo_region` source table       |
+| `stg_pinterest_ads__targeting_geo`                             | New Model   |          |          | Uses `targeting_geo` source table              |
+| `stg_pinterest_ads__pin_promotion_targeting_report_tmp`        | New Model   |          |          | Uses `pin_promotion_targeting_report` source table |
+| `stg_pinterest_ads__targeting_geo_region_tmp`                  | New Model   |          |          | Uses `targeting_geo_region` source table       |
+| `stg_pinterest_ads__targeting_geo_tmp`                         | New Model   |          |          | Uses `targeting_geo` source table              |
+
+### Columns
+5 new columns • 0 possible breaking changes
+
+| Model/Column                                 | Change type   | Old name | New name | Notes                            |
+|----------------------------------------------|---------------|----------|----------|----------------------------------|
+| `stg_pinterest_ads__campaign_history` |
+| `start_time`         | New Column   |          |          |                                  |
+| `end_time`           | New Column   |          |          |                                  |
+| `budget_spend_cap`   | New Column   |          |          |                                  |
+| `lifetime_spend_cap` | New Column   |          |          |                                  |
+| `objective_type`     | New Column   |          |          |                                  |
+
+## Under the Hood
+- Added `get_*_columns` macros for new sources
+- Added seed data for testing new sources
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#38](https://github.com/fivetran/dbt_pinterest_source/pull/38))
