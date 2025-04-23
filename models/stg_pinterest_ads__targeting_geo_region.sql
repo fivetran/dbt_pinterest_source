@@ -1,5 +1,3 @@
-{{ config(enabled=fivetran_utils.enabled_vars(['ad_reporting__pinterest_ads_enabled','pinterest_ads_targeting_geo_region_enabled'])) }}
-
 {{ config(
     enabled=fivetran_utils.enabled_vars([
         'ad_reporting__pinterest_ads_enabled',

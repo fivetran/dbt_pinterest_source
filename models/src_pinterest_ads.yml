@@ -374,7 +374,7 @@ sources:
         identifier: "{{ var('pinterest_ads_targeting_geo_identifier', 'targeting_geo') }}"
         description: "Maps country targeting values used in campaigns, including standardized names and associated location codes."
         config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) and var('pinterest_ads_targeting_geo_enabled', true) }}"
+          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) and var('pinterest_ads_pin_promotion_targeting_report_enabled', true) and var('pinterest_ads_targeting_geo_enabled', true) }}"
         columns:
           - name: "country_id"
             description: "{{ doc('country_id') }}"
@@ -387,7 +387,7 @@ sources:
         identifier: "{{ var('pinterest_ads_targeting_geo_region_identifier', 'targeting_geo_region') }}"
         description: "Maps region targeting values used in campaigns, including standardized names and associated location codes."
         config:
-          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) and var('pinterest_ads_targeting_geo_region_enabled', true) }}"
+          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) and and var('pinterest_ads_pin_promotion_targeting_report_enabled', true) var('pinterest_ads_targeting_geo_region_enabled', true) }}"
         columns:
           - name: "_fivetran_synced"
             description: "{{ doc('_fivetran_synced') }}"
