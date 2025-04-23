@@ -54,13 +54,21 @@ vars:
     pinterest_schema: your_schema_name 
 ```
 
-### Step 4: Disabling Keyword Models
+### Step 4: Enable/disable models and sources
 This package takes into consideration that not every Pinterest account tracks `keyword` performance, and allows you to disable the corresponding functionality by adding the following variable configuration:
 
 ```yml
-# dbt_project.yml
 vars:
     pinterest__using_keywords: False # Default = true
+```
+
+Additionally, your Pinterest Ads connection may not sync every table that this package expects. If you do not have the `PIN_PROMOTION_TARGETING_REPORT`, `TARGETING_GEO`, or `TARGETING_GEO_REGION` tables synced, add the following variable to your root `dbt_project.yml` file:
+
+```yml
+vars:
+    pinterest_ads_pin_promotion_targeting_report_enabled: false # Default is true
+    pinterest_ads_targeting_geo_enabled: false # Default is true, requires PIN_PROMOTION_TARGETING_REPORT to be enabled
+    pinterest_ads_targeting_geo_region_enabled: false # Default is true, requires PIN_PROMOTION_TARGETING_REPORT to be enabled
 ```
 
 ### (Optional) Step 5: Additional configurations
