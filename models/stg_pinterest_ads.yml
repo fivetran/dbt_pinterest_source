@@ -419,7 +419,7 @@ models:
         description: "{{ doc('total_conversions_value') }}"
 
   - name: stg_pinterest_ads__pin_promotion_targeting_report
-    description: "Contains performance metrics for promoted Pins segmented by applied targeting criteria, including targeting type, value, and related campaign metadata."
+    description: Contains performance metrics for promoted Pins segmented by applied targeting criteria, including targeting type, value, and related campaign metadata.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -439,9 +439,9 @@ models:
       - name: date_day
         description: "{{ doc('date_day') }}"
       - name: targeting_type
-        description: "Reporting targeting type for ads. Possible values: 'KEYWORD', 'APPTYPE', 'GENDER', 'LOCATION', 'PLACEMENT', 'COUNTRY', 'TARGETED_INTEREST', 'PINNER_INTEREST', 'AUDIENCE_INCLUDE', 'GEO', 'AGE_BUCKET', 'REGION', 'QUIZ_RESULT', 'AGE_BUCKET_AND_GENDER'"
+        description: Reporting targeting type for ads. Possible values 'KEYWORD', 'APPTYPE', 'GENDER', 'LOCATION', 'PLACEMENT', 'COUNTRY', 'TARGETED_INTEREST', 'PINNER_INTEREST', 'AUDIENCE_INCLUDE', 'GEO', 'AGE_BUCKET', 'REGION', 'QUIZ_RESULT', 'AGE_BUCKET_AND_GENDER'
       - name: targeting_value
-        description: "The specific value applied within the targeting type (e.g., 'Fashion' for interest, 'New York' for location)."
+        description: The specific value applied within the targeting type (e.g., 'Fashion' for interest, 'New York' for location).
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
       - name: advertiser_id
@@ -464,7 +464,7 @@ models:
         description: "{{ doc('total_conversions_value') }}"
 
   - name: stg_pinterest_ads__targeting_geo
-    description: "Maps country targeting values used in campaigns, including standardized names and associated location codes."
+    description: Maps country targeting values used in campaigns, including standardized names and associated location codes.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -481,7 +481,7 @@ models:
         description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_pinterest_ads__targeting_geo_region
-    description: "Maps region targeting values used in campaigns, including standardized names and associated location codes."
+    description: Maps region targeting values used in campaigns, including standardized names and associated location codes.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
@@ -498,4 +498,4 @@ models:
       - name: region_id
         description: "{{ doc('region_id') }}"
       - name: region_name
-        description: "The name of the targeted region."
+        description: The name of the targeted region.

@@ -1,4 +1,4 @@
-{{ config(enabled=fivetran_utils.enabled_vars(['ad_reporting__pinterest_ads_enabled','pinterest_ads_pin_promotion_targeting_report_enabled'])) }}
+{{ config(enabled=fivetran_utils.enabled_vars(['ad_reporting__pinterest_ads_enabled','pinterest__using_pin_promotion_targeting_report'])) }}
 
 with base as (
 
