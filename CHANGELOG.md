@@ -1,31 +1,27 @@
 # dbt_pinterest_source v0.12.0
 [PR #39](https://github.com/fivetran/dbt_pinterest_source/pull/39) includes the following updates:
 
-## Schema Updates
+## Schema Changes
+7 total changes • 0 possible breaking changes
 
-### Models
-6 new models • 0 possible breaking changes
+| Data Model                                                  | Change type | Old name | New name | Notes                                           |
+|-------------------------------------------------------------|-------------|----------|----------|-------------------------------------------------|
+| [`stg_pinterest_ads__pin_promotion_targeting_report`](https://fivetran.github.io/dbt_pinterest/#!/model/model.pinterest.stg_pinterest_ads__pin_promotion_targeting_report) | New Staging Model | | | Uses `pin_promotion_targeting_report` source table |
+| [`stg_pinterest_ads__targeting_geo_region`](https://fivetran.github.io/dbt_pinterest/#!/model/model.pinterest.stg_pinterest_ads__targeting_geo_region) | New Staging Model | | | Uses `targeting_geo_region` source table       |
+| [`stg_pinterest_ads__targeting_geo`](https://fivetran.github.io/dbt_pinterest/#!/model/model.pinterest.stg_pinterest_ads__targeting_geo) | New Staging Model | | | Uses `targeting_geo` source table              |
+| [`stg_pinterest_ads__pin_promotion_targeting_report_tmp`](https://fivetran.github.io/dbt_pinterest/#!/model/model.pinterest.stg_pinterest_ads__pin_promotion_targeting_report_tmp) | New Temp Model | | | Uses `pin_promotion_targeting_report` source table |
+| [`stg_pinterest_ads__targeting_geo_region_tmp`](https://fivetran.github.io/dbt_pinterest/#!/model/model.pinterest.stg_pinterest_ads__targeting_geo_region_tmp) | New Temp Model | | | Uses `targeting_geo_region` source table       |
+| [`stg_pinterest_ads__targeting_geo_tmp`](https://fivetran.github.io/dbt_pinterest/#!/model/model.pinterest.stg_pinterest_ads__targeting_geo_tmp) | New Temp Model | | | Uses `targeting_geo` source table              |
+| [`stg_pinterest_ads__campaign_history`](https://fivetran.github.io/dbt_pinterest/#!/model/model.pinterest.stg_pinterest_ads__campaign_history) | New Columns | | `start_time`, `end_time`, `budget_spend_cap`, `lifetime_spend_cap`, `objective_type` | |
 
-| Model/Column                                                 | Change type | Old name | New name | Notes                                           |
-|--------------------------------------------------------------|-------------|----------|----------|-------------------------------------------------|
-| `stg_pinterest_ads__pin_promotion_targeting_report`            | New Model   |          |          | Uses `pin_promotion_targeting_report` source table |
-| `stg_pinterest_ads__targeting_geo_region`                      | New Model   |          |          | Uses `targeting_geo_region` source table       |
-| `stg_pinterest_ads__targeting_geo`                             | New Model   |          |          | Uses `targeting_geo` source table              |
-| `stg_pinterest_ads__pin_promotion_targeting_report_tmp`        | New Model   |          |          | Uses `pin_promotion_targeting_report` source table |
-| `stg_pinterest_ads__targeting_geo_region_tmp`                  | New Model   |          |          | Uses `targeting_geo_region` source table       |
-| `stg_pinterest_ads__targeting_geo_tmp`                         | New Model   |          |          | Uses `targeting_geo` source table              |
-
-### Columns
-5 new columns • 0 possible breaking changes
-
-| Model/Column                                 | Change type   | Old name | New name | Notes                            |
-|----------------------------------------------|---------------|----------|----------|----------------------------------|
-| `stg_pinterest_ads__campaign_history` |
-| `start_time`         | New Column   |          |          |                                  |
-| `end_time`           | New Column   |          |          |                                  |
-| `budget_spend_cap`   | New Column   |          |          |                                  |
-| `lifetime_spend_cap` | New Column   |          |          |                                  |
-| `objective_type`     | New Column   |          |          |                                  |
+## Features
+- Added the following vars to enable/disable the new sources. See the [README](https://github.com/fivetran/dbt_pinterest_ads_source/blob/main/README.md#Step-4-Enable-disable-models-and-sources) for more details.
+  - `pinterest__using_pin_promotion_targeting_report`
+    - Default is true. Will disable `stg_pinterest_ads__pin_promotion_targeting_report` if false.
+  - `pinterest__using_targeting_geo`
+    - Default is true. Will disable `stg_pinterest_ads__targeting_geo` if false.
+  - `pinterest__using_targeting_geo_region`
+    - Default is true. Will disable `stg_pinterest_ads__targeting_geo_region` if false.
 
 ## Under the Hood
 - Added `get_*_columns` macros for new sources
