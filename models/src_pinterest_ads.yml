@@ -100,6 +100,16 @@ sources:
             description: Determines if a campaign automatically generate ad-group level budgets given a campaign budget to maximize campaign outcome. When transitioning from non-cbo to cbo, all previous child ad group budget will be cleared.
           - name: is_flexible_daily_budgets
             description: Determine if a campaign has flexible daily budgets setup.
+          - name: start_time
+            description: Timestamp when the campaign became active or was scheduled to start.
+          - name: end_time
+            description: Timestamp when the campaign ended or is scheduled to end.
+          - name: budget_spend_cap
+            description: Maximum amount allowed to be spent over a specified budget period for the campaign.
+          - name: lifetime_spend_cap
+            description: Total maximum spend allowed across the entire lifespan of the campaign.
+          - name: objective_type
+            description: The primary goal of the campaign (e.g., brand awareness, conversions, video views).
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
 
@@ -321,3 +331,69 @@ sources:
           - name: total_conversions_value_in_micro_dollar
             description: "{{ doc('total_conversions_value_in_micro_dollar') }}"
 
+      - name: pin_promotion_targeting_report
+        identifier: "{{ var('pinterest_ads_pin_promotion_targeting_report_identifier', 'pin_promotion_targeting_report') }}"
+        description: Contains performance metrics for promoted Pins segmented by applied targeting criteria, including targeting type, value, and related campaign metadata.
+        config:
+          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) and var('pinterest__using_pin_promotion_targeting_report', true) }}"
+        columns:
+          - name: _fivetran_synced
+            description: "{{ doc('_fivetran_synced') }}"
+          - name: date
+            description: "{{ doc('date_day') }}"
+          - name: targeting_type
+            description: Reporting targeting type for ads. Possible values 'KEYWORD', 'APPTYPE', 'GENDER', 'LOCATION', 'PLACEMENT', 'COUNTRY', 'TARGETED_INTEREST', 'PINNER_INTEREST', 'AUDIENCE_INCLUDE', 'GEO', 'AGE_BUCKET', 'REGION', 'QUIZ_RESULT', 'AGE_BUCKET_AND_GENDER'
+          - name: targeting_value
+            description: The specific value applied within the targeting type (e.g., 'Fashion' for interest, 'New York' for location).
+          - name: ad_group_id
+            description: "{{ doc('ad_group_id') }}"
+          - name: advertiser_id
+            description: "{{ doc('advertiser_id') }}"
+          - name: campaign_id
+            description: "{{ doc('campaign_id') }}"
+          - name: pin_promotion_id
+            description: "{{ doc('pin_promotion_id') }}"
+          - name: clickthrough_1
+            description: "{{ doc('clickthrough_1') }}"
+          - name: clickthrough_2
+            description: "{{ doc('clickthrough_2') }}"
+          - name: impression_1
+            description: "{{ doc('impression_1') }}"
+          - name: impression_2
+            description: "{{ doc('impression_2') }}"
+          - name: spend_in_micro_dollar
+            description: "{{ doc('spend_in_micro_dollar') }}"
+          - name: total_conversions
+            description: "{{ doc('total_conversions') }}"
+          - name: total_conversions_quantity
+            description: "{{ doc('total_conversions_quantity') }}"
+          - name: total_conversions_value_in_micro_dollar
+            description: "{{ doc('total_conversions_value_in_micro_dollar') }}"
+
+      - name: targeting_geo
+        identifier: "{{ var('pinterest_ads_targeting_geo_identifier', 'targeting_geo') }}"
+        description: Maps country targeting values used in campaigns, including standardized names and associated location codes.
+        config:
+          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) and var('pinterest__using_targeting_geo', true) }}"
+        columns:
+          - name: country_id
+            description: "{{ doc('country_id') }}"
+          - name: country_name
+            description: The name of the targeted country.
+          - name: _fivetran_synced
+            description: "{{ doc('_fivetran_synced') }}"
+
+      - name: targeting_geo_region
+        identifier: "{{ var('pinterest_ads_targeting_geo_region_identifier', 'targeting_geo_region') }}"
+        description: Maps region targeting values used in campaigns, including standardized names and associated location codes.
+        config:
+          enabled: "{{ var('ad_reporting__pinterest_ads_enabled', true) and var('pinterest__using_targeting_geo_region', true) }}"
+        columns:
+          - name: _fivetran_synced
+            description: "{{ doc('_fivetran_synced') }}"
+          - name: country_id
+            description: "{{ doc('country_id') }}"
+          - name: region_id
+            description: "{{ doc('region_id') }}"
+          - name: region_name
+            description: The ID of the targeted region."

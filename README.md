@@ -1,4 +1,6 @@
-<p align="center">
+# Pinterest Ads Source dbt Package ([Docs](https://fivetran.github.io/dbt_pinterest_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_pinterest_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -10,7 +12,6 @@
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
 
-# Pinterest Ads Source dbt Package ([Docs](https://fivetran.github.io/dbt_pinterest_source/))
 ## What does this dbt package do?
 - Materializes [Pinterest Ads staging tables](https://fivetran.github.io/dbt_pinterest_source/#!/overview/pinterest_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/pinterest-ads#schemainformation). These staging tables clean, test, and prepare your Pinterest Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/pinterest-ads) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
@@ -41,7 +42,7 @@ If you  are **not** using the [Pinterest transformation package](https://github.
 ```yml
 packages:
   - package: fivetran/pinterest_source
-    version: [">=0.11.0", "<0.12.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.12.0", "<0.13.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ### Step 3: Define database and schema variables
@@ -53,13 +54,21 @@ vars:
     pinterest_schema: your_schema_name 
 ```
 
-### Step 4: Disabling Keyword Models
+### Step 4: Enable/disable models and sources
 This package takes into consideration that not every Pinterest account tracks `keyword` performance, and allows you to disable the corresponding functionality by adding the following variable configuration:
 
 ```yml
-# dbt_project.yml
 vars:
     pinterest__using_keywords: False # Default = true
+```
+
+Additionally, your Pinterest Ads connection may not sync every table that this package expects. If you do not have the `PIN_PROMOTION_TARGETING_REPORT`, `TARGETING_GEO`, or `TARGETING_GEO_REGION` tables synced, add the following variable to your root `dbt_project.yml` file:
+
+```yml
+vars:
+    pinterest__using_pin_promotion_targeting_report: false # Default is true
+    pinterest__using_targeting_geo: false # Default is true
+    pinterest__using_targeting_geo_region: false # Default is true
 ```
 
 ### (Optional) Step 5: Additional configurations
@@ -85,9 +94,6 @@ By default, this package will select `clicks`, `impressions`, `spend` (converted
 
 ```yml
 vars:
-    pinterest__pin_promotion_report_passthrough_metrics: 
-      - name: "new_custom_field"
-        alias: "custom_field"
     pinterest__ad_group_report_passthrough_metrics:
       - name: "this_field"
     pinterest__advertiser_report_passthrough_metrics:
@@ -98,6 +104,11 @@ vars:
     pinterest__keyword_report_passthrough_metrics:
       - name: "other_id"
         alias: "another_id"
+    pinterest__pin_promotion_report_passthrough_metrics: 
+      - name: "new_custom_field"
+        alias: "custom_field"
+    pinterest__pin_promotion_targeting_report_passthrough_metrics:
+      - name: "new_field"
 ```
 
 #### Change the build schema
