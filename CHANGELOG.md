@@ -1,6 +1,6 @@
 # dbt_pinterest_source v0.13.0
 
-[PR #41](https://github.com/fivetran/dbt_pinterest_ads_source/pull/41) includes the following updates:
+[PR #40](https://github.com/fivetran/dbt_pinterest_source/pull/40) includes the following updates:
 
 ## Breaking Change for dbt Core < 1.9.6
 > *Note: This is not relevant to Fivetran Quickstart users.*
